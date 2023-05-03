@@ -6,14 +6,19 @@ export interface Props {
 }
 
 const { title, subtitle, desc } = Astro.props;
+import { Icon } from "astro-icon";
 ---
 
 <div class="work">
 	<div class="work-desc">
-		<h3>{title}</h3>
+		<h3>
+			<a href="">
+				{title}
+				<Icon name="jam:arrow-right" aria-hidden="true" />
+			</a>
+		</h3>
 		<h4>{subtitle}</h4>
 		<p>{desc}</p>
-		<a href="">Scopri di più</a>
 	</div>
 	<div class="img"></div>
 </div>

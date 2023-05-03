@@ -2,18 +2,19 @@
 import { Icon } from "astro-icon";
 ---
 
-<footer class="with-bg">
+<footer class="with-bg" id="contatti">
     <h2>Contatti</h2>
-    <div><Icon name="tabler:mail" role="img" /></div>
-    <div><Icon name="jam:linkedin" role="img" /></div>
-    <div><Icon name="eva:github-outline" role="img" /></div>
+    <a href="" title="Invia un'e-mail">
+        <Icon name="tabler:mail" role="img" title="Icona e-mail" />
+    </a>
+    <a
+        href="https://www.linkedin.com/in/federicaercole/"
+        title="Visita LinkedIn"
+    >
+        <Icon name="jam:linkedin" role="img" title="Logo LinkedIn" />
+    </a>
+    <a href="https://github.com/federicaercole" title="Visita Github">
+        <Icon name="eva:github-outline" role="img" title="Logo Github" />
+    </a>
+    <p>© Federica Ercole - Sito fatto con Astro</p>
 </footer>
-
-<style lang="css">
-    [astro-icon] {
-        fill: #0a1c5c;
-        color: #0a1c5c;
-        width: 24px;
-        height: auto;
-    }
-</style>

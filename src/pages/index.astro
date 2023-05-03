@@ -1,45 +1,112 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
 import Card from "../components/Card.astro";
 import Footer from "../components/Footer.astro";
+
+const webSkills = [
+	"HTML",
+	"CSS",
+	"Sass/SCSS",
+	"JavaScript",
+	"React",
+	"WordPress",
+	"Git",
+	"VS Code",
+];
+
+const designSkills = ["Illustrator", "Affinity Designer", "Figma"];
 ---
 
 <Layout title="Portfolio">
 	<header>
+		<Nav />
 		<h1>Federica Ercole</h1>
-		<h2>
+		<span>
 			&lt; Front-End Developer /&gt;
 			<span>Designer</span>
-		</h2>
+		</span>
 	</header>
 	<main>
-		<section>
-			<h2>I miei lavori</h2>
-			<div class="works-container">
+		<section class="works" id="lavori">
+			<div class="wrapper">
+				<h2>I miei lavori</h2>
 				<Card
 					title="Hanami Blog"
 					subtitle="Sito in WordPress"
-					desc="Un sito per lo studio il giapponese che va avanti da più di 10 anni, di cui gestisco ogni singolo aspetto."
+					desc="Un sito per lo studio il giapponese che va avanti da più di 10 anni, di cui gestisco ogni singolo aspetto"
+				/>
+				<Card
+					title="Kana App"
+					subtitle="App in React"
+					desc="Un’applicazione per ripassare facilmente i sillabari del giapponese: hiragana e katakana"
+				/>
+
+				<Card
+					title="Shop Online"
+					subtitle="Sito in React"
+					desc="Un finto shop online per far pratica con il routing e con funzioni relative alla gestione del carrello"
 				/>
 			</div>
 		</section>
-		<section class="with-bg">
+		<section class="with-bg about" id="chi-sono">
 			<div class="wrapper">
 				<h2>Mi presento</h2>
-				<p>
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-					Repudiandae doloribus sint accusantium error ab totam minima
-					voluptate cum vero. Tempora enim officiis molestias saepe
-					perspiciatis aliquam dolore obcaecati itaque at.
-				</p>
-				<img src="../src/assets/images/foto.jpg" />
+				<div>
+					<p>
+						Sono Federica Ercole e sono un'appassionata di grafica e
+						di internet.
+					</p>
+
+					<p>
+						Ho iniziato i miei primi passi nel web nei primi anni
+						2000 con HTML e CSS, quando si usavano tabelle per
+						posizionare gli elementi di una pagina e tanti siti
+						facevano uso di Flash.
+					</p>
+
+					<p>
+						Successivamente ho iniziato ad usare il CMS
+						WordPress.org per creare siti dinamici, creando temi da
+						zero sia dal punto di vista dell'HTML e CSS che della
+						grafica.
+					</p>
+
+					<p>
+						Negli ultimi 6 mesi ho iniziato a studiare JavaScript e
+						React seguendo vari corsi online, tra cui The Odin
+						Project.
+					</p>
+
+					<p>
+						Sono sempre alla ricerca nuove opportunità per
+						migliorare le mie conoscenze. Non si finisce mai di
+						imparare!
+					</p>
+				</div>
+				<div class="img-container">
+					<img
+						src="../src/assets/images/foto.jpg"
+						alt="Federica Ercole sorridente"
+					/>
+				</div>
 			</div>
 		</section>
-		<section class="skills">
+		<section class="skills" id="conoscenze">
 			<div class="wrapper">
-				<h2>Conoscenze</h2>
-				<h3 class="web">Web</h3>
-				<h3 class="design">Design</h3>
+				<h2>Conoscenze e strumenti</h2>
+				<div>
+					<h3 class="web">Web</h3>
+					<ul>
+						{webSkills.map((skill) => <li>{skill}</li>)}
+					</ul>
+				</div>
+				<div>
+					<h3 class="design">Design</h3>
+					<ul>
+						{designSkills.map((skill) => <li>{skill}</li>)}
+					</ul>
+				</div>
 			</div>
 		</section>
 	</main>

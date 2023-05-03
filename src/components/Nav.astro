@@ -1,0 +1,23 @@
+---
+import { Icon } from "astro-icon";
+const menuItems = ["I miei lavori", "Chi sono", "Conoscenze", "Contatti"];
+const id = ["lavori", "chi-sono", "conoscenze", "contatti"];
+---
+
+<nav>
+    <button id="toggle" type="button" aria-expanded="false" aria-haspopup="true"><Icon name="solar:hamburger-menu-linear" aria-hidden="true" title="Icona e-mail" /><span class="visually-hidden">Apri menu</span></button>
+    <ul>
+        {
+            menuItems.map((item, index) => (
+                <li>
+                    <a href=`#${id[index]}`>{item}</a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+
+<script>
+    const menuButton= document.querySelector("#toggle");
+
+</script>
