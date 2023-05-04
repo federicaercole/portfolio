@@ -44,44 +44,14 @@ header {
     align-self: center;
 }
 
-nav {
-    margin-bottom: 128px;
-
-    ul {
-        font-size: $fs-50;
-        letter-spacing: 0.05rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        list-style: none;
-        gap: 32px;
-        padding-left: 0;
-    }
-
-    li {
-        flex-basis: 300px;
-    }
-
-    a {
-        color: $primary-color-100;
-        text-decoration: none;
-        padding: 8px 16px;
-    }
-
-    // li a:hover {}
-}
-
 .visually-hidden {
-    position: absolute;
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0;
-    border: 0;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    margin: -1px;
+    clip: rect(0 0 0 0);
     clip-path: inset(50%);
-    word-wrap: normal;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 section>* {
@@ -160,11 +130,7 @@ span>span {
 
     h3 {
         font-size: $fs-300;
-        color: $primary-color-200;
         font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 4px;
     }
 
     h4 {
@@ -179,6 +145,10 @@ span>span {
     a {
         color: $accent-color-500;
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: max-content;
 
         &:hover,
         &:hover svg {
@@ -244,6 +214,47 @@ footer {
         flex-basis: 100%;
         text-align: center;
         margin: 32px 0 0 0;
+    }
+}
+
+/*Focus*/
+
+@mixin focus-style() {
+    outline-color: $accent-color-500;
+    outline-style: solid;
+    outline-width: 3px;
+    outline-offset: 2px;
+}
+
+*:focus {
+    @include focus-style();
+}
+
+.skip-link:focus {
+    display: block;
+    background-color: $primary-color-100;
+    color: $primary-color-800;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    width: max-content;
+    padding: 16px;
+    z-index: 20;
+}
+
+@supports selector(:focus-visible) {
+
+    *:focus {
+        outline: 0;
+    }
+
+    *:focus-visible {
+        @include focus-style();
     }
 }
 
@@ -358,6 +369,7 @@ footer {
 }
 
 //Media queries
+
 @media (min-width: 650px) {
     .img {
         order: -1;
