@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
 import Card from "../components/Card.astro";
-import Footer from "../components/Footer.astro";
 
 const webSkills = [
 	"HTML",
@@ -19,11 +17,10 @@ const designSkills = ["Illustrator", "Affinity Designer", "Figma"];
 ---
 
 <Layout title="Portfolio">
-	<a href="#main" class="visually-hidden skip-link">Vai al contenuto</a>
 	<header>
 		<h1>Federica Ercole</h1>
 		<span>
-			&lt; Front-End Developer /&gt;
+			&lt; Front-End Developer&gt;
 			<span>Designer</span>
 		</span>
 	</header>
@@ -35,17 +32,23 @@ const designSkills = ["Illustrator", "Affinity Designer", "Figma"];
 					title="Hanami Blog"
 					subtitle="Sito in WordPress"
 					desc="Un sito per lo studio il giapponese che va avanti da più di 10 anni, di cui gestisco ogni singolo aspetto"
+					containerClass="hanami-blog"
+					alt="Schermate d'esempio del sito Hanami Blog"
 				/>
 				<Card
 					title="Kana App"
 					subtitle="App in React"
 					desc="Un’applicazione per ripassare facilmente i sillabari del giapponese: hiragana e katakana"
+					containerClass="kana"
+					alt="Schermate d'esempio dell'app"
 				/>
 
 				<Card
 					title="Shop Online"
 					subtitle="Sito in React"
 					desc="Un finto shop online per far pratica con il routing e con funzioni relative alla gestione del carrello"
+					containerClass="shop"
+					alt="Schermate d'esempio dello shop online"
 				/>
 			</div>
 		</section>
@@ -110,5 +113,4 @@ const designSkills = ["Illustrator", "Affinity Designer", "Figma"];
 			</div>
 		</section>
 	</main>
-	<Footer />
 </Layout>

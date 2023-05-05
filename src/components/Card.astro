@@ -3,9 +3,11 @@ export interface Props {
 	title: string;
 	subtitle: string;
 	desc: string;
+	containerClass: string;
+	alt: string;
 }
 
-const { title, subtitle, desc } = Astro.props;
+const { title, subtitle, desc, containerClass, alt } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
@@ -20,5 +22,12 @@ import { Icon } from "astro-icon";
 		<h4>{subtitle}</h4>
 		<p>{desc}</p>
 	</div>
-	<div class="img"></div>
+	<div class=`container ${containerClass}`>
+		<img
+			alt={alt}
+			src=`../src/assets/images/${containerClass}-cover.png`
+			srcset=`../src/assets/images/${containerClass}-cover.png 1x,
+			../src/assets/images/${containerClass}-cover-big.png 2x`
+		/>
+	</div>
 </div>

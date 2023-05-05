@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+/*Reset*/
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/*Stili elementi base*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 $primary-color-100: #E4E9FC;
 $primary-color-200: #A8B8F0;
@@ -21,15 +42,8 @@ $fs-500: 3rem;
 $fs-600: 3.75rem;
 $fs-700: 4.5rem;
 
-*,
-*::after,
-*::before {
-    margin: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background: linear-gradient(180deg, #311C6E 12.8%, #0A1C5C 29.17%);
+    background: linear-gradient(180deg, #311C6E 12.8%, $primary-color-800 29.17%);
     color: $primary-color-100;
     font-family: 'Montserrat', sans-serif;
     display: grid;
@@ -38,10 +52,24 @@ body {
 }
 
 header {
-    padding: 16px;
     padding: 32px 0 96px 0;
     margin: 0 16px 64px 16px;
     align-self: center;
+}
+
+section>* {
+    margin: 0 16px;
+}
+
+svg {
+    width: 24px;
+    height: auto;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1120px;
+    padding: 64px 16px;
 }
 
 .visually-hidden {
@@ -54,19 +82,7 @@ header {
     width: 1px;
 }
 
-section>* {
-    margin: 0 16px;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-svg {
-    width: 24px;
-    height: auto;
-}
+/*Testo*/
 
 p {
     margin: 1.5rem 0;
@@ -101,11 +117,37 @@ span>span {
     margin: 0 auto;
 }
 
-.img {
-    height: 250px;
-    border-radius: 12px;
-    background-color: #041349;
+/*Header*/
+
+nav {
+    justify-self: center;
+    width: min(100%, 1120px);
+    padding: 32px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+        width: 48px;
+        fill: $primary-color-200;
+    }
+
+    a:hover svg {
+        fill: $primary-color-500;
+    }
 }
+
+.cta {
+    padding: 8px 16px;
+    background-color: $primary-color-300;
+    border-radius: 32px;
+    color: $primary-color-800;
+    text-decoration: none;
+    font-size: $fs-200;
+    font-weight: 500;
+}
+
+/*Sezione portfolio*/
 
 .works h2 {
     text-align: center;
@@ -150,28 +192,40 @@ span>span {
         gap: 4px;
         width: max-content;
 
-        &:hover,
-        &:hover svg {
-            color: $accent-color-300;
-        }
-
-        &:hover svg {
-            transform: translateX(12px);
-        }
-
         svg {
             color: $accent-color-500;
-            transition: transform 0.5s ease-in-out;
         }
 
     }
 }
 
-.wrapper {
-    margin: 0 auto;
-    max-width: 1120px;
-    padding: 64px 16px;
+.container {
+    height: 256px;
+    border-radius: 32px;
+    display: flex;
+    align-items: flex-end;
+
+    &.hanami-blog {
+        background-color: #ffd1b3;
+    }
+
+    &.kana {
+        background-color: #ffa66c;
+    }
+
+    &.shop {
+        background-color: #27272a;
+    }
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 32px;
+    }
 }
+
+/*Footer*/
 
 footer {
     display: flex;
@@ -193,20 +247,10 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background-color .3s ease-in-out;
-
-        &:hover {
-            background-color: $primary-color-400;
-        }
-
-        &:hover svg {
-            color: $primary-color-100;
-        }
     }
 
     svg {
         color: $primary-color-800;
-        transition: color .3s ease-in-out;
     }
 
     p {
@@ -215,6 +259,50 @@ footer {
         text-align: center;
         margin: 32px 0 0 0;
     }
+}
+
+/*Hover*/
+@media(hover:hover) {
+
+    .works a:hover,
+    .works a:hover svg {
+        color: $accent-color-300;
+    }
+
+    .works a:hover svg {
+        transform: translateX(12px);
+    }
+
+    footer a:hover,
+    .cta:hover {
+        background-color: $primary-color-400;
+        color: $primary-color-100;
+    }
+
+    footer a:hover svg {
+        color: $primary-color-100;
+    }
+}
+
+/*Active*/
+
+.works a:active,
+.works a:active svg {
+    color: $accent-color-300;
+}
+
+.works a:active svg {
+    transform: translateX(12px);
+}
+
+footer a:active,
+.cta:hover {
+    background-color: $primary-color-400;
+    color: $primary-color-100;
+}
+
+footer a:active svg {
+    color: $primary-color-100;
 }
 
 /*Focus*/
@@ -258,6 +346,16 @@ footer {
     }
 }
 
+/*Sezione chi sono*/
+
+.about .wrapper {
+    align-items: center;
+}
+
+.about p {
+    max-width: 50ch;
+}
+
 .with-bg {
     background-color: $primary-color-900;
 
@@ -271,13 +369,7 @@ footer {
     }
 }
 
-.about .wrapper {
-    align-items: center;
-}
-
-.about p {
-    max-width: 50ch;
-}
+/*Sezione competenze*/
 
 .skills .wrapper,
 .about .wrapper {
@@ -353,11 +445,6 @@ footer {
         padding-bottom: 0;
     }
 
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-
     li {
         margin: 16px 0;
     }
@@ -368,17 +455,40 @@ footer {
 
 }
 
-//Media queries
+/*Animazioni*/
+@media (prefers-reduced-motion:no-preference) {
 
-@media (min-width: 650px) {
-    .img {
+    .cta {
+        transition: background-color 0.4s, color 0.4s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .work svg {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    footer {
+        a {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        svg {
+            transition: color 0.3s ease-in-out;
+        }
+    }
+
+}
+
+/*Tablet e Desktop*/
+
+@media (min-width: 600px) {
+    .container {
         order: -1;
     }
 
     .work:nth-child(2n) {
-        grid-template-columns: 1fr 2fr;
 
-        .img {
+        .container {
             order: 1;
         }
 
@@ -389,7 +499,7 @@ footer {
     }
 
     .work {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 32px;
     }
 }
@@ -445,5 +555,9 @@ footer {
 
     p {
         font-size: $fs-200;
+    }
+
+    .container {
+        height: 384px;
     }
 }
