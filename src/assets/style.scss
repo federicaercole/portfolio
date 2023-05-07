@@ -129,18 +129,21 @@ nav {
 
     svg {
         width: 48px;
-        fill: $primary-color-200;
     }
 
-    a:hover svg {
-        fill: $primary-color-500;
+    .f-logo {
+        fill: $primary-color-100;
+    }
+
+    .e-logo {
+        fill: $primary-color-300;
     }
 }
 
 .cta {
     padding: 8px 16px;
     background-color: $primary-color-300;
-    border-radius: 32px;
+    border-radius: 12px;
     color: $primary-color-800;
     text-decoration: none;
     font-size: $fs-200;
@@ -200,28 +203,12 @@ nav {
 }
 
 .container {
-    height: 256px;
-    border-radius: 32px;
-    display: flex;
-    align-items: flex-end;
-
-    &.hanami-blog {
-        background-color: #ffd1b3;
-    }
-
-    &.kana {
-        background-color: #ffa66c;
-    }
-
-    &.shop {
-        background-color: #27272a;
-    }
+    height: 85%;
+    border-radius: 12px;
+    overflow: hidden;
 
     img {
-        object-fit: cover;
-        height: 100%;
         width: 100%;
-        border-radius: 32px;
     }
 }
 
@@ -282,6 +269,18 @@ footer {
     footer a:hover svg {
         color: $primary-color-100;
     }
+
+    a:hover img {
+        transform: translateY(-15%);
+    }
+
+    a:hover .f-logo {
+        fill: $primary-color-300;
+    }
+
+    a:hover .e-logo {
+        fill: $primary-color-100;
+    }
 }
 
 /*Active*/
@@ -296,7 +295,7 @@ footer {
 }
 
 footer a:active,
-.cta:hover {
+.cta:active {
     background-color: $primary-color-400;
     color: $primary-color-100;
 }
@@ -458,6 +457,10 @@ footer a:active svg {
 /*Animazioni*/
 @media (prefers-reduced-motion:no-preference) {
 
+    nav svg path {
+        transition: fill 0.3s ease-in-out;
+    }
+
     .cta {
         transition: background-color 0.4s, color 0.4s;
         transition-timing-function: ease-in-out;
@@ -475,6 +478,10 @@ footer a:active svg {
         svg {
             transition: color 0.3s ease-in-out;
         }
+    }
+
+    img {
+        transition: transform 0.4s ease-in-out;
     }
 
 }
@@ -557,7 +564,7 @@ footer a:active svg {
         font-size: $fs-200;
     }
 
-    .container {
-        height: 384px;
-    }
+    // .container {
+    //     height: 384px;
+    // }
 }

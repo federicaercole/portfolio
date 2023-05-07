@@ -22,12 +22,14 @@ import { Icon } from "astro-icon";
 		<h4>{subtitle}</h4>
 		<p>{desc}</p>
 	</div>
-	<div class=`container ${containerClass}`>
-		<img
-			alt={alt}
-			src=`../src/assets/images/${containerClass}-cover.png`
-			srcset=`../src/assets/images/${containerClass}-cover.png 1x,
+	<div class="container">
+		<a href="" tabindex="-1">
+			<img
+				alt={alt}
+				src=`../src/assets/images/${containerClass}-cover.png`
+				srcset=`../src/assets/images/${containerClass}-cover.png 1x,
 			../src/assets/images/${containerClass}-cover-big.png 2x`
-		/>
+			/>
+		</a>
 	</div>
 </div>
