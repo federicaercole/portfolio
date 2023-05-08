@@ -3,18 +3,18 @@ export interface Props {
 	title: string;
 	subtitle: string;
 	desc: string;
-	containerClass: string;
+	slug: string;
 	alt: string;
 }
 
-const { title, subtitle, desc, containerClass, alt } = Astro.props;
+const { title, subtitle, desc, slug, alt } = Astro.props;
 import { Icon } from "astro-icon";
 ---
 
 <div class="work">
 	<div class="work-desc">
 		<h3>
-			<a href="">
+			<a href=`/${slug}`>
 				{title}
 				<Icon name="jam:arrow-right" aria-hidden="true" />
 			</a>
@@ -23,12 +23,12 @@ import { Icon } from "astro-icon";
 		<p>{desc}</p>
 	</div>
 	<div class="container">
-		<a href="" tabindex="-1">
+		<a href=`/${slug}` tabindex="-1">
 			<img
 				alt={alt}
-				src=`../src/assets/images/${containerClass}-cover.png`
-				srcset=`../src/assets/images/${containerClass}-cover.png 1x,
-			../src/assets/images/${containerClass}-cover-big.png 2x`
+				src=`../src/assets/images/${slug}-cover.png`
+				srcset=`../src/assets/images/${slug}-cover.png 1x,
+			../src/assets/images/${slug}-cover-big.png 2x`
 			/>
 		</a>
 	</div>

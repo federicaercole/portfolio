@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout title="Hanami Blog - Federica Ercole Portfolio">
+    <main id="main" class="page">
+        <div class="wrapper">
+            <h1>Hanami Blog</h1>
+            <a href="https://hanamiblog.net" class="live-site">
+                Vai al sito
+                <Icon name="jam:arrow-right" aria-hidden="true" />
+            </a>
+            <p>
+                Un sito, nato quasi per caso, per parlare della mia esperienza
+                con lo studio del giapponese da autodidatta. È nato come
+                semplice blog per condividere questa mia passione, con gli anni
+                è diventato qualcosa di più, nonostante il nome: un punto di
+                riferimento per chi studia questa lingua.
+            </p>
+            <p>
+                Proprio per la sua natura di blog, la scelta più naturale era
+                utilizzare WordPress.org, che garantisce una certa flessibilità
+                e una certa facilità d'uso nel gestire il back-end.
+            </p>
+
+            <h2>Parte grafica e UI</h2>
+            <p>
+                Negli anni la grafica e, più in generale, la struttura del sito
+                ha subito diversi cambiamenti. Nella grafica attuale ho deciso
+                di mantenere i colori precedenti, come colore principale
+                l'arancio e come accent color un rosa molto scuro, quasi rosso.
+                Ho scelto questi colori perché volevo distaccarmi dai soliti
+                colori associati al Giappone, anche se il rosa simboleggia i
+                fiori di ciliegio, un simbolo della cultura giapponese ("Hanami"
+                significa "osservare i fiori di ciliegio").
+            </p>
+            <p>
+                La struttura dell'interfaccia è quella classica di un blog, dove
+                ho scelto di snellire il più possibile la navigazione e la
+                sidebar mettendoci pochi link.
+            </p>
+            <h2>Parte tecnica</h2>
+            <p>
+                Il tema attualmente utilizzato, così come quelli precedenti, non
+                deriva da alcun tema esistente e non fa uso di blocchi. Pur
+                esistendo una gran varietà di temi per WordPress ho deciso di
+                crearlo da zero per mettermi alla prova e cercare di costruire
+                qualcosa di unico.
+            </p>
+
+            <p>
+                Ho posto particolare attenzione all'uso dei corretti tag HTML
+                per rendere la pagina il più possibile accessibile anche a chi
+                usa uno screen reader.
+            </p>
+
+            <p>
+                Alcune funzionalità del sito sono state implementate tramite
+                plugin, tra cui il form dei contatti e il banner dei cookie.
+            </p>
+
+            <h2>Cosa ho imparato da questo progetto</h2>
+            <p>
+                Posso dire, senza alcun dubbio, che è il progetto che mi ha
+                aiutato di più a crescere, non solo a livello di codice o di
+                grafica ma anche per aver imparato a:
+            </p>
+            <ul>
+                <li>
+                    strutturare il sito in modo tale da rendere facile la
+                    navigazione
+                </li>
+                <li>
+                    installare ed utilizzare Google Analytics e, in misura
+                    minore, Tag Manager
+                </li>
+                <li>fare attenzione alla SEO</li>
+                <li>fare attenzione alla sicurezza del sito</li>
+                <li>
+                    scrivere articoli e landing page, gestire una newsletter
+                </li>
+                <li>
+                    scrivere ebook, impaginarli e gestirne la vendita tramite
+                    servizi di terze parti
+                </li>
+                <li>
+                    comprendere meglio il funzionamento WordPress e la struttura
+                    dei temi
+                </li>
+            </ul>
+        </div>
+    </main>
+    <aside>
+        <div class="wrapper">
+            <h2>Altri progetti</h2>
+            <Card
+                title="Kana App"
+                subtitle="App in React"
+                desc="Un’applicazione per ripassare facilmente i sillabari del giapponese: hiragana e katakana"
+                slug="kana"
+                alt="Schermata dell'homepage dell'app"
+            />
+            <Card
+                title="Shop Online"
+                subtitle="Sito in React"
+                desc="Un finto shop online per far pratica con il routing e con funzioni relative alla gestione del carrello"
+                slug="shop"
+                alt="Schermata dell'homepage dello shop online"
+            />
+        </div>
+    </aside>
+</Layout>

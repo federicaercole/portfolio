@@ -16,13 +16,17 @@ const webSkills = [
 const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 ---
 
-<Layout title="Portfolio">
+<Layout title="Federica Ercole - Front-End Developer e Designer">
 	<header>
 		<h1>Federica Ercole</h1>
-		<span>
-			&lt; Front-End Developer&gt;
-			<span>Designer</span>
-		</span>
+		<p>
+			<span class="front-end">Front-End Developer</span>
+			<span class="designer">
+				<span></span>
+				Designer
+				<span></span>
+			</span>
+		</p>
 	</header>
 	<main id="main">
 		<section class="works">
@@ -32,21 +36,21 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 					title="Hanami Blog"
 					subtitle="Sito in WordPress"
 					desc="Un sito per lo studio il giapponese che va avanti da più di 10 anni, di cui gestisco ogni singolo aspetto"
-					containerClass="hanami-blog"
+					slug="hanami-blog"
 					alt="Schermata dell'homepage del sito Hanami Blog"
 				/>
 				<Card
 					title="Kana App"
 					subtitle="App in React"
 					desc="Un’applicazione per ripassare facilmente i sillabari del giapponese: hiragana e katakana"
-					containerClass="kana"
+					slug="kana"
 					alt="Schermata dell'homepage dell'app"
 				/>
 				<Card
 					title="Shop Online"
 					subtitle="Sito in React"
 					desc="Un finto shop online per far pratica con il routing e con funzioni relative alla gestione del carrello"
-					containerClass="shop"
+					slug="shop"
 					alt="Schermata dell'homepage dello shop online"
 				/>
 			</div>
