@@ -52,7 +52,7 @@ body {
 }
 
 header {
-    padding: 32px 0 96px 0;
+    padding: 48px 0;
     margin: 0 16px 64px 16px;
     align-self: center;
 }
@@ -101,22 +101,6 @@ h2 {
     margin-bottom: 16px;
 }
 
-span {
-    display: flex;
-    font-size: $fs-300;
-    flex-direction: column;
-    font-weight: 500;
-    text-align: center;
-    margin-top: 32px;
-}
-
-span>span {
-    padding: 8px 12px;
-    width: max-content;
-    border: 1px solid $primary-color-200;
-    margin: 0 auto;
-}
-
 /*Header*/
 
 nav {
@@ -150,6 +134,67 @@ nav {
     font-weight: 500;
 }
 
+.front-end::before {
+    content: "<";
+    margin-right: 8px;
+}
+
+.front-end::after {
+    content: ">";
+    margin-left: 8px;
+}
+
+header p {
+    display: flex;
+    flex-direction: column;
+    font-size: $fs-300;
+    font-weight: 500;
+    text-align: center;
+    margin: 64px 0 0 0;
+}
+
+.designer {
+    $square-width: 10px;
+
+    padding: 8px 12px;
+    width: max-content;
+    border: 1px solid $primary-color-200;
+    margin: 32px auto 0 auto;
+    position: relative;
+
+    &::before,
+    &::after,
+    & span {
+        content: "";
+        display: block;
+        width: $square-width;
+        height: $square-width;
+        background-color: $primary-color-100;
+        border: 1px solid $primary-color-200;
+        position: absolute;
+    }
+
+    &::before {
+        top: - calc($square-width/2);
+        left: - calc($square-width/2);
+    }
+
+    &::after {
+        bottom: - calc($square-width/2);
+        right: - calc($square-width/2);
+    }
+
+    & span:nth-of-type(1) {
+        top: - calc($square-width/2);
+        right: - calc($square-width/2);
+    }
+
+    & span:nth-of-type(2) {
+        bottom: - calc($square-width/2);
+        left: - calc($square-width/2);
+    }
+}
+
 /*Sezione portfolio*/
 
 .works h2 {
@@ -160,8 +205,6 @@ nav {
     margin: 64px 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
-    align-items: center;
 
     &:last-of-type {
         margin-bottom: 0;
@@ -209,6 +252,7 @@ nav {
 
     img {
         width: 100%;
+        height: auto;
     }
 }
 
@@ -248,15 +292,97 @@ footer {
     }
 }
 
+/*Pagina portfolio*/
+
+.page {
+
+    .live-site {
+        color: $accent-color-500;
+        font-size: $fs-200;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        justify-self: start;
+        gap: 4px;
+        letter-spacing: 0.1rem;
+        margin-top: 16px;
+    }
+
+    h1 {
+        font-size: $fs-400;
+        color: $primary-color-200;
+        text-align: left;
+    }
+
+    h2 {
+        margin: 32px 0 24px 0;
+
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    p {
+        max-width: 60ch;
+        margin-top: 0;
+        line-height: 1.7;
+    }
+
+    a+p {
+        margin-top: 48px;
+    }
+
+    ul {
+        list-style: disc;
+        padding: 16px;
+
+        li {
+            padding: 8px;
+        }
+    }
+}
+
+aside {
+    margin-bottom: 64px;
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 16px;
+    }
+
+    .work {
+        grid-template-columns: 1fr;
+        margin: 0;
+        gap: 0;
+        align-items: start;
+
+        &:nth-of-type(2) {
+            margin-top: 32px;
+        }
+    }
+
+    .container {
+        order: -1;
+    }
+}
+
 /*Hover*/
 @media(hover:hover) {
 
-    .works a:hover,
-    .works a:hover svg {
+    .work a:hover,
+    .work a:hover svg,
+    .live-site:hover,
+    .live-site:hover svg {
         color: $accent-color-300;
     }
 
-    .works a:hover svg {
+    .work a:hover svg,
+    .live-site:hover svg {
         transform: translateX(12px);
     }
 
@@ -285,12 +411,15 @@ footer {
 
 /*Active*/
 
-.works a:active,
-.works a:active svg {
+.work a:active,
+.work a:active svg,
+.live-site:active,
+.live-site:active svg {
     color: $accent-color-300;
 }
 
-.works a:active svg {
+.work a:active svg,
+.live-site:active svg {
     transform: translateX(12px);
 }
 
@@ -387,6 +516,7 @@ footer a:active svg {
 
     h2 {
         flex-basis: 100%;
+        text-align: center;
     }
 }
 
@@ -466,7 +596,8 @@ footer a:active svg {
         transition-timing-function: ease-in-out;
     }
 
-    .work svg {
+    .work svg,
+    .live-site svg {
         transition: transform 0.5s ease-in-out;
     }
 
@@ -493,7 +624,7 @@ footer a:active svg {
         order: -1;
     }
 
-    .work:nth-child(2n) {
+    main .work:nth-child(2n) {
 
         .container {
             order: 1;
@@ -507,7 +638,32 @@ footer a:active svg {
 
     .work {
         grid-template-columns: 1fr 1fr;
-        gap: 32px;
+        gap: 16px;
+        align-items: center;
+    }
+
+    aside {
+        h2 {
+            grid-column: 1/-1;
+        }
+
+        .wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .work {
+            &:nth-of-type(2) {
+                margin-top: 0;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 700px) {
+
+    h2 {
+        font-size: $fs-400;
     }
 }
 
@@ -523,14 +679,22 @@ footer a:active svg {
         &>div:first-of-type {
             flex-grow: 2;
         }
+
+        h2 {
+            text-align: left;
+        }
+    }
+
+    .work-desc h3 {
+        font-size: $fs-400;
     }
 
     .work {
-        gap: 64px;
+        gap: 32px;
         grid-template-columns: 1fr 1fr;
     }
 
-    .work:nth-child(2n) {
+    main .work:nth-child(2n) {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -538,33 +702,76 @@ footer a:active svg {
         font-size: $fs-600;
     }
 
-    h2,
-    .work-desc h3 {
-        font-size: $fs-400;
-    }
-
     ul {
         font-size: $fs-200;
     }
 
+    header p {
+        font-size: $fs-500;
+    }
+
+    .page {
+
+        .live-site {
+            margin-top: 0;
+            align-self: center;
+        }
+
+        h1,
+        p,
+        ul {
+            grid-column: 1/4;
+        }
+
+        h1 {
+            font-size: $fs-500;
+        }
+
+        h2 {
+            grid-column: 1/-1;
+        }
+
+        .wrapper {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    }
+
+}
+
+@media (min-width:900px) {
+    aside {
+        .wrapper {
+            gap: 64px;
+        }
+    }
 }
 
 @media (min-width: 1000px) {
+
+    .work {
+        gap: 64px;
+    }
 
     h1 {
         font-size: $fs-700;
     }
 
+    h1,
+    h2 {
+        letter-spacing: 0.05rem;
+    }
+
     h2 {
         font-size: $fs-500;
-        letter-spacing: 0.05rem;
     }
 
     p {
         font-size: $fs-200;
     }
 
-    // .container {
-    //     height: 384px;
-    // }
+    .page {
+        h1 {
+            font-size: $fs-600;
+        }
+    }
 }
