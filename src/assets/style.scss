@@ -17,9 +17,65 @@ img {
     display: block;
 }
 
-/*Stili elementi base*/
+a {
+    text-decoration: none;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+/*Mixin*/
+
+@mixin vertical-align-center() {
+    display: flex;
+    align-items: center;
+}
+
+@mixin focus-style() {
+    outline-color: $accent-color-500;
+    outline-style: solid;
+    outline-width: 3px;
+    outline-offset: 2px;
+}
+
+@mixin background-size() {
+    background-position: 50%;
+    background-size: 32px auto;
+    background-repeat: no-repeat;
+}
+
+/*Font*/
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/montserrat.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: url(../assets/fonts/montserrat.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url(../assets/fonts/montserrat.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: url(../assets/fonts/montserrat.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*Stili elementi base*/
 
 $primary-color-100: #E4E9FC;
 $primary-color-200: #A8B8F0;
@@ -32,6 +88,7 @@ $primary-color-800: #0A1C5C;
 $primary-color-900: #041349;
 $accent-color-500: #FFC727;
 $accent-color-300: #fedd81;
+$violet: #311C6E;
 
 $fs-50: 0.875rem;
 $fs-100: 1rem;
@@ -43,7 +100,7 @@ $fs-600: 3.75rem;
 $fs-700: 4.5rem;
 
 body {
-    background: linear-gradient(180deg, #311C6E 12.8%, $primary-color-800 29.17%);
+    background: linear-gradient(180deg, $violet 12.8%, $primary-color-800 29.17%);
     color: $primary-color-100;
     font-family: 'Montserrat', sans-serif;
     display: grid;
@@ -55,10 +112,6 @@ header {
     padding: 48px 0;
     margin: 0 16px 64px 16px;
     align-self: center;
-}
-
-section>* {
-    margin: 0 16px;
 }
 
 svg {
@@ -86,7 +139,16 @@ svg {
 
 p {
     margin: 1.5rem 0;
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+strong {
+    font-weight: 600;
+}
+
+h1,
+h2 {
+    letter-spacing: 0.05rem;
 }
 
 h1 {
@@ -97,19 +159,46 @@ h1 {
 
 h2 {
     color: $primary-color-200;
-    font-size: $fs-300;
+    font-size: $fs-400;
     margin-bottom: 16px;
+    text-align: center;
+    flex-basis: 100%;
+}
+
+/*Link*/
+
+.highlight-link {
+    color: $accent-color-500;
+    @include vertical-align-center();
+    gap: 4px;
+    width: max-content;
+
+    svg {
+        color: $accent-color-500;
+    }
+}
+
+.page {
+    .highlight-link {
+        font-size: $fs-200;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+
+    a:not(.highlight-link) {
+        text-decoration: underline;
+        color: $accent-color-500;
+    }
 }
 
 /*Header*/
 
 nav {
+    @include vertical-align-center();
     justify-self: center;
     width: min(100%, 1120px);
     padding: 32px 16px;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
 
     svg {
         width: 48px;
@@ -129,7 +218,6 @@ nav {
     background-color: $primary-color-300;
     border-radius: 12px;
     color: $primary-color-800;
-    text-decoration: none;
     font-size: $fs-200;
     font-weight: 500;
 }
@@ -145,12 +233,12 @@ nav {
 }
 
 header p {
-    display: flex;
+    @include vertical-align-center();
     flex-direction: column;
     font-size: $fs-300;
     font-weight: 500;
-    text-align: center;
     margin: 64px 0 0 0;
+    text-align: center;
 }
 
 .designer {
@@ -197,10 +285,6 @@ header p {
 
 /*Sezione portfolio*/
 
-.works h2 {
-    text-align: center;
-}
-
 .work {
     margin: 64px 0;
     display: grid;
@@ -229,31 +313,13 @@ header p {
         margin-bottom: 4px;
         letter-spacing: 0.05rem;
     }
-
-    a {
-        color: $accent-color-500;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        width: max-content;
-
-        svg {
-            color: $accent-color-500;
-        }
-
-    }
 }
 
 .container {
     height: 85%;
     border-radius: 12px;
     overflow: hidden;
-
-    img {
-        width: 100%;
-        height: auto;
-    }
+    max-width: 512px;
 }
 
 /*Footer*/
@@ -265,18 +331,12 @@ footer {
     padding: 32px 16px;
     justify-content: center;
 
-    h2 {
-        text-align: center;
-        flex-basis: 100%;
-    }
-
     a {
         background-color: $primary-color-200;
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
+        @include vertical-align-center();
         justify-content: center;
     }
 
@@ -296,19 +356,6 @@ footer {
 
 .page {
 
-    .live-site {
-        color: $accent-color-500;
-        font-size: $fs-200;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        justify-self: start;
-        gap: 4px;
-        letter-spacing: 0.1rem;
-        margin-top: 16px;
-    }
-
     h1 {
         font-size: $fs-400;
         color: $primary-color-200;
@@ -317,36 +364,52 @@ footer {
 
     h2 {
         margin: 32px 0 24px 0;
-
+        text-align: left;
     }
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
+    // .wrapper {
+    //     display: grid;
+    //     grid-template-columns: 1fr;
+    // }
+
+    .wrapper div {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-bottom: 16px;
+        width: 100%;
     }
 
     p {
         max-width: 60ch;
         margin-top: 0;
-        line-height: 1.7;
     }
 
-    a+p {
-        margin-top: 48px;
+    div+p {
+        margin-top: 32px;
     }
 
     ul {
         list-style: disc;
-        padding: 16px;
+        padding: 0 0 16px 0;
+        padding-left: 16px;
+    }
 
-        li {
-            padding: 8px;
-        }
+    li {
+        padding: 8px;
+        line-height: 1.7;
     }
 }
 
 aside {
     margin-bottom: 64px;
+
+    h2 {
+        text-align: left;
+        grid-column: 1/-1;
+    }
 
     .wrapper {
         display: grid;
@@ -366,6 +429,11 @@ aside {
         }
     }
 
+    .work-desc {
+        position: relative;
+        top: -1rem;
+    }
+
     .container {
         order: -1;
     }
@@ -374,15 +442,13 @@ aside {
 /*Hover*/
 @media(hover:hover) {
 
-    .work a:hover,
-    .work a:hover svg,
-    .live-site:hover,
-    .live-site:hover svg {
+    .highlight-link:hover,
+    .highlight-link:hover svg,
+    .page a:hover {
         color: $accent-color-300;
     }
 
-    .work a:hover svg,
-    .live-site:hover svg {
+    .highlight-link:hover svg {
         transform: translateX(12px);
     }
 
@@ -411,15 +477,13 @@ aside {
 
 /*Active*/
 
-.work a:active,
-.work a:active svg,
-.live-site:active,
-.live-site:active svg {
+.highlight-link:active,
+.highlight-link:active svg,
+.page a:active {
     color: $accent-color-300;
 }
 
-.work a:active svg,
-.live-site:active svg {
+.highlight-link:active svg {
     transform: translateX(12px);
 }
 
@@ -435,13 +499,6 @@ footer a:active svg {
 
 /*Focus*/
 
-@mixin focus-style() {
-    outline-color: $accent-color-500;
-    outline-style: solid;
-    outline-width: 3px;
-    outline-offset: 2px;
-}
-
 *:focus {
     @include focus-style();
 }
@@ -449,7 +506,8 @@ footer a:active svg {
 .skip-link:focus {
     display: block;
     background-color: $primary-color-100;
-    color: $primary-color-800;
+    color: $primary-color-900;
+    text-decoration: underline;
     position: absolute;
     top: 0;
     left: 0;
@@ -513,24 +571,13 @@ footer a:active svg {
     p:last-of-type {
         margin-bottom: 0;
     }
-
-    h2 {
-        flex-basis: 100%;
-        text-align: center;
-    }
 }
 
 .skills {
-
-    h2 {
-        text-align: center;
-    }
-
     h3 {
         font-weight: 500;
         font-size: $fs-300;
-        display: flex;
-        align-items: center;
+        @include vertical-align-center();
         gap: 24px;
         letter-spacing: 0.05rem;
         margin-bottom: 16px;
@@ -543,12 +590,6 @@ footer a:active svg {
         background-color: $accent-color-500;
         display: block;
         border-radius: 50%;
-    }
-
-    @mixin background-size() {
-        background-position: 50%;
-        background-size: 32px auto;
-        background-repeat: no-repeat;
     }
 
     .web::before {
@@ -564,8 +605,7 @@ footer a:active svg {
     .wrapper div {
         flex: 1 1 250px;
         padding: 24px;
-        display: flex;
-        align-items: center;
+        @include vertical-align-center();
         flex-direction: column;
         max-width: 250px;
     }
@@ -596,8 +636,7 @@ footer a:active svg {
         transition-timing-function: ease-in-out;
     }
 
-    .work svg,
-    .live-site svg {
+    .highlight-link svg {
         transition: transform 0.5s ease-in-out;
     }
 
@@ -620,6 +659,7 @@ footer a:active svg {
 /*Tablet e Desktop*/
 
 @media (min-width: 600px) {
+
     .container {
         order: -1;
     }
@@ -643,10 +683,6 @@ footer a:active svg {
     }
 
     aside {
-        h2 {
-            grid-column: 1/-1;
-        }
-
         .wrapper {
             grid-template-columns: 1fr 1fr;
         }
@@ -656,14 +692,10 @@ footer a:active svg {
                 margin-top: 0;
             }
         }
-    }
 
-}
-
-@media (min-width: 700px) {
-
-    h2 {
-        font-size: $fs-400;
+        .work-desc {
+            top: -0.75rem;
+        }
     }
 }
 
@@ -691,11 +723,6 @@ footer a:active svg {
 
     .work {
         gap: 32px;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    main .work:nth-child(2n) {
-        grid-template-columns: 1fr 1fr;
     }
 
     h1 {
@@ -711,42 +738,39 @@ footer a:active svg {
     }
 
     .page {
+        // .highlight-link {
+        //     margin-top: 0;
+        //     align-self: center;
+        // }
 
-        .live-site {
-            margin-top: 0;
-            align-self: center;
-        }
-
-        h1,
-        p,
-        ul {
-            grid-column: 1/4;
-        }
+        // h1,
+        // p,
+        // ul {
+        //     grid-column: 1/4;
+        // }
 
         h1 {
             font-size: $fs-500;
         }
 
-        h2 {
-            grid-column: 1/-1;
-        }
-
-        .wrapper {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
+        // .wrapper {
+        //     grid-template-columns: 1fr 1fr 1fr 1fr;
+        // }
     }
 
 }
 
-@media (min-width:900px) {
+@media (min-width: 1000px) {
+
     aside {
         .wrapper {
             gap: 64px;
         }
-    }
-}
 
-@media (min-width: 1000px) {
+        .work-desc {
+            top: -1rem;
+        }
+    }
 
     .work {
         gap: 64px;
@@ -754,11 +778,6 @@ footer a:active svg {
 
     h1 {
         font-size: $fs-700;
-    }
-
-    h1,
-    h2 {
-        letter-spacing: 0.05rem;
     }
 
     h2 {

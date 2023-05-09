@@ -1,20 +1,22 @@
 ---
 export interface Props {
-	title: string;
-	subtitle: string;
-	desc: string;
-	slug: string;
-	alt: string;
+	work: {
+		title: string;
+		subtitle: string;
+		desc: string;
+		slug: string;
+		alt: string;
+	};
 }
 
-const { title, subtitle, desc, slug, alt } = Astro.props;
+const { title, subtitle, desc, slug, alt } = Astro.props.work;
 import { Icon } from "astro-icon";
 ---
 
 <div class="work">
 	<div class="work-desc">
 		<h3>
-			<a href=`/${slug}`>
+			<a href=`/${slug}` class="highlight-link">
 				{title}
 				<Icon name="jam:arrow-right" aria-hidden="true" />
 			</a>

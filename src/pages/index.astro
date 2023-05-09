@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { works } from "../components/works.js";
 import Card from "../components/Card.astro";
 
 const webSkills = [
@@ -29,30 +30,10 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 		</p>
 	</header>
 	<main id="main">
-		<section class="works">
+		<section>
 			<div class="wrapper">
 				<h2>Portfolio</h2>
-				<Card
-					title="Hanami Blog"
-					subtitle="Sito in WordPress"
-					desc="Un sito per lo studio il giapponese che va avanti da più di 10 anni, di cui gestisco ogni singolo aspetto"
-					slug="hanami-blog"
-					alt="Schermata dell'homepage del sito Hanami Blog"
-				/>
-				<Card
-					title="Kana App"
-					subtitle="App in React"
-					desc="Un’applicazione per ripassare facilmente i sillabari del giapponese: hiragana e katakana"
-					slug="kana"
-					alt="Schermata dell'homepage dell'app"
-				/>
-				<Card
-					title="Shop Online"
-					subtitle="Sito in React"
-					desc="Un finto shop online per far pratica con il routing e con funzioni relative alla gestione del carrello"
-					slug="shop"
-					alt="Schermata dell'homepage dello shop online"
-				/>
+				{works.map((work) => <Card work={work} />)}
 			</div>
 		</section>
 		<section class="with-bg about">
