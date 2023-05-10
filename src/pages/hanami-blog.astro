@@ -3,10 +3,32 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import { works } from "../components/works.astro";
 import { Icon } from "astro-icon";
+import Picture from "../components/Picture.astro";
 
 const filteredWorks = works.filter(
     (work) => `/${work.slug}` != Astro.url.pathname
 );
+
+const folder = "hanami-blog";
+
+const images = [
+    {
+        name: "hanami-blog-1",
+        alt: "Schermata dell'homepage di Hanami Blog su desktop",
+    },
+    {
+        name: "hanami-blog-2",
+        alt: "Schermata dell'homepage di Hanami Blog su mobile",
+    },
+    {
+        name: "hanami-blog-3",
+        alt: "Schermata di Hanami Blog",
+    },
+    {
+        name: "hanami-blog-4",
+        alt: "Close-up di due elementi accessibili",
+    },
+];
 ---
 
 <Layout title="Hanami Blog - Federica Ercole Portfolio">
@@ -50,15 +72,17 @@ const filteredWorks = works.filter(
             </p>
             <div class="image-grid">
                 <figure class="medium">
-                    <img
-                        src="../src/assets/images/hanami-blog-1.jpg"
-                        alt="Schermata dell'homepage di Hanami Blog su desktop"
+                    <Picture
+                        alt={images[0].alt}
+                        folder={folder}
+                        image={images[0].name}
                     />
                 </figure>
                 <figure class="small bottom-caption">
-                    <img
-                        src="../src/assets/images/hanami-blog-2.jpg"
-                        alt="Schermata dell'homepage di Hanami Blog su mobile"
+                    <Picture
+                        alt={images[1].alt}
+                        folder={folder}
+                        image={images[1].name}
                     />
                     <figcaption>
                         Come appare l'homepage da desktop e mobile
@@ -80,20 +104,20 @@ const filteredWorks = works.filter(
             </p>
             <div class="image-grid">
                 <figure class="big">
-                    <img
-                        class="with-caption"
-                        src="../src/assets/images/hanami-blog-3.jpg"
-                        alt="Schermata di Hanami Blog"
+                    <Picture
+                        alt={images[2].alt}
+                        folder={folder}
+                        image={images[2].name}
                     />
                     <figcaption>
                         Esempio di un articolo su Hanami Blog
                     </figcaption>
                 </figure>
                 <figure class="big">
-                    <img
-                        class="with-caption"
-                        src="../src/assets/images/hanami-blog-4.jpg"
-                        alt="Close-up di due elementi accessibili"
+                    <Picture
+                        alt={images[3].alt}
+                        folder={folder}
+                        image={images[3].name}
                     />
                     <figcaption>
                         Due esempi di elementi accessibili del sito: il link per

@@ -394,7 +394,7 @@ footer {
     }
 
     li {
-        padding: 8px;
+        padding: 8px 0;
         line-height: 1.6;
     }
 }
@@ -424,7 +424,11 @@ footer {
             font-size: $fs-50;
             line-height: 1.7;
             border-left: 4px solid $primary-color-300;
-            width: 100%;
+            max-width: 50ch;
+        }
+
+        &>a {
+            cursor: zoom-in;
         }
     }
 
@@ -500,7 +504,7 @@ aside {
         color: $primary-color-100;
     }
 
-    a:hover img {
+    .work a:hover img {
         transform: translateY(-15%);
     }
 
@@ -696,10 +700,9 @@ footer a:active svg {
         }
     }
 
-    img {
+    .work img {
         transition: transform 0.4s ease-in-out;
     }
-
 }
 
 /*Tablet e Desktop*/
@@ -753,17 +756,12 @@ footer a:active svg {
             flex-wrap: nowrap;
             gap: 32px;
 
-            .with-caption {
-                max-width: 75%;
-            }
-
             &.bottom-caption {
                 flex-direction: column;
             }
 
             figcaption {
                 border-left: 4px solid $primary-color-300;
-                border-bottom: 0;
                 order: -1;
             }
 
@@ -829,10 +827,6 @@ footer a:active svg {
     aside {
         .work-desc {
             top: -1rem;
-        }
-
-        .work {
-            margin: 0 40px;
         }
     }
 
