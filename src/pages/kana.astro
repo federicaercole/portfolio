@@ -1,0 +1,211 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { works } from "../components/works.astro";
+import { Icon } from "astro-icon";
+import Picture from "../components/Picture.astro";
+
+const filteredWorks = works.filter(
+    (work) => `/${work.slug}` != Astro.url.pathname
+);
+
+const folder = "kana";
+
+const images = [
+    {
+        name: "kana-1",
+        alt: "Schermata iniziale dell'app",
+    },
+    {
+        name: "kana-2",
+        alt: "Schermata delle impostazioni",
+    },
+    {
+        name: "kana-3",
+        alt: "Schermata di ripasso delle parole",
+    },
+    {
+        name: "kana-4",
+        alt: "Pagina finale dell'app",
+    },
+    {
+        name: "kana-5",
+        alt: "Tabella delle parole incontrate",
+    },
+];
+---
+
+<Layout title="Kana App - Federica Ercole Portfolio">
+    <main id="main" class="page">
+        <div class="wrapper">
+            <div class="page-intro">
+                <h1>Kana App</h1>
+                <a
+                    href="https://hanamiblog.net/kana-app"
+                    class="highlight-link"
+                >
+                    Vai all'app
+                    <Icon name="jam:arrow-right" aria-hidden="true" />
+                </a>
+            </div>
+            <p>
+                Un'app costruita con React per ripassare i due sillabari della
+                lingua giapponese: hiragana e katakana.
+            </p>
+
+            <p>
+                Ho scelto di fare questa app per aggiungere qualcosa di nuovo al
+                mio sito Hanami Blog, che potesse essere utile a chi si sta
+                approcciando allo studio di questa lingua.
+            </p>
+
+            <p>
+                Esistono altri siti con lo stesso scopo, ma quello che rende
+                diversa quest'app è il fatto che non si ripassano i singoli
+                caratteri ma i caratteri all'interno di parole giapponesi. È
+                come se al posto di ripassare le singole lettere dell'alfabeto
+                ci si esercitasse a leggere parole.
+            </p>
+
+            <h2>Come funziona</h2>
+            <p>
+                L'applicazione è composta da 4 diverse fasi, descritte dalle
+                immagini successive.
+            </p>
+
+            <div class="image-grid">
+                <figure class="small bottom-caption">
+                    <Picture
+                        image={images[0].name}
+                        folder={folder}
+                        alt={images[0].alt}
+                    />
+                    <figcaption>
+                        <span>1</span>L'utente seleziona il sillabario vuole
+                        ripassare.
+                    </figcaption>
+                </figure>
+                <figure class="small bottom-caption">
+                    <Picture
+                        image={images[1].name}
+                        folder={folder}
+                        alt={images[1].alt}
+                    />
+                    <figcaption>
+                        <span>2</span> L'utente sceglie quali caratteri e quante
+                        parole desidera ripassare. Se non esistono parole con certe
+                        combinazioni appare un messaggio per avvisare l'utente.
+                    </figcaption>
+                </figure>
+                <figure class="small bottom-caption">
+                    <Picture
+                        image={images[2].name}
+                        folder={folder}
+                        alt={images[2].alt}
+                    />
+                    <figcaption>
+                        <span>3</span> Inizia la parte di revisione delle parole,
+                        l'utente legge la parola giapponese e scrive nell'input la
+                        relativa lettura in lettere. Una volta inviata la risposta
+                        l'app mostra la parola successiva se la risposta è corretta,
+                        altrimenti offre la possibilità di vedere la soluzione.
+                    </figcaption>
+                </figure>
+                <figure class="small bottom-caption">
+                    <Picture
+                        image={images[3].name}
+                        folder={folder}
+                        alt={images[3].alt}
+                    />
+                    <figcaption>
+                        <span>4</span> Una volta incontrate tutte le parole termina
+                        la sessione e viene mostrato il punteggio.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p>
+                È possibile rivedere tutte le parole incontrate in una comoda
+                tabella.
+            </p>
+            <Picture
+                image={images[4].name}
+                folder={folder}
+                alt={images[4].alt}
+            />
+
+            <h2>Parte grafica e UI</h2>
+            <p>
+                Essendo parte del sito principale ho cercato di rendere l'app
+                simile al sito usando gli stessi colori. Per distinguerla dal
+                sito, e renderla anche meno vuota, ho aggiunto un leggero sfondo
+                che rappresenta i caratteri giapponesi e il motivo di un'onda in
+                cima.
+            </p>
+
+            <p>
+                Per quanto riguarda l'interfaccia ho cercato il più possibile di
+                spezzare le varie fasi in più pagine per rendere più
+                comprensibile il percorso da seguire per l'utente. Nelle fasi
+                iniziali avevo pensato di raggruppare in una sola pagina la
+                scelta del sillabario e quello della selezione dei caratteri, ho
+                scelto di separarle per evitare di dare troppe opzioni in una
+                sola pagina e per far comprendere che si può ripassare un solo
+                sillabario per volta.
+            </p>
+
+            <h2>Parte tecnica</h2>
+            <p>
+                Ho scelto di costruire l'app in un'unica pagina per evitare il
+                caricamento da parte dell'utente di una pagina diversa del
+                percorso previsto. Il cambiamento di ogni pagina è gestito da un
+                unico stato che viene cambiato al click di determinati bottoni.
+            </p>
+
+            <p>
+                La funzione che caratterizza l'app è senza dubbio quella che
+                sceglie le parole da mostrare all'utente in maniera casuale a
+                seconda delle opzioni inserite.
+            </p>
+
+            <p>
+                Per far in modo di selezionare le parole in base alle sillabe,
+                ho scelto di trascrivere ciascuna parola in lettere suddividendo
+                ciascuna sillaba in un array.
+            </p>
+
+            <p>
+                Le sillabe selezionate dall'utente vengono memorizzate in un
+                array di uno stato, il cui stato iniziale ha al suo interno
+                suoni che possono trovarsi all'interno delle parole e non sono
+                specifici della selezione (allungamenti di vocale, consonanti
+                doppie). Questi suoni iniziali sono preceduti da un trattino in
+                modo tale da distinguerli dagli altri selezionabili.
+            </p>
+
+            <p>
+                Una volta selezionare le sillabe l'app sceglie prima tutte
+                parole che contengono soltanto quelle sillabe tramite i metodi
+                filter e every, dopodiché viene svolta una selezione casuale
+                scegliendo un numero massimo di parole determinato dall'utente.
+            </p>
+
+            <h2>Cosa ho imparato da questo progetto</h2>
+            <p>Da questo progetto ho imparato principalmente a:</p>
+            <ul>
+                <li>gestire gli stati e gli effetti in React</li>
+                <li>strutturare meglio il codice</li>
+                <li>
+                    trovare una soluzione a problemi mai affrontati prima
+                    (funzione principale dell'app)
+                </li>
+            </ul>
+        </div>
+    </main>
+    <aside>
+        <div class="wrapper">
+            <h2>Altri progetti</h2>
+            {filteredWorks.map((work) => <Card work={work} />)}
+        </div>
+    </aside>
+</Layout>

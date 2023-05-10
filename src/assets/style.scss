@@ -406,6 +406,7 @@ footer {
     flex-wrap: wrap;
     gap: 32px;
     margin-top: 64px;
+    align-items: flex-start;
 
     &+h2,
     &+p {
@@ -425,6 +426,13 @@ footer {
             line-height: 1.7;
             border-left: 4px solid $primary-color-300;
             max-width: 50ch;
+
+            span {
+                font-size: $fs-400;
+                font-weight: 500;
+                margin-right: 8px;
+                display: block;
+            }
         }
 
         &>a {
@@ -441,8 +449,17 @@ footer {
     }
 
     .small {
+        flex: 1 1 calc(50% - 32px);
+
+        img {
+            max-width: 281px;
+        }
+    }
+
+    .mini {
         flex: 1 1 25%;
     }
+
 }
 
 aside {
