@@ -110,7 +110,6 @@ body {
 
 header {
     padding: 48px 0;
-    margin: 0 16px 64px 16px;
     align-self: center;
 }
 
@@ -183,6 +182,7 @@ h2 {
         font-size: $fs-200;
         text-transform: uppercase;
         letter-spacing: 0.1rem;
+        font-weight: 500;
     }
 
     a:not(.highlight-link) {
@@ -247,7 +247,7 @@ header p {
     padding: 8px 12px;
     width: max-content;
     border: 1px solid $primary-color-200;
-    margin: 32px auto 0 auto;
+    margin: 16px auto 0 auto;
     position: relative;
 
     &::before,
@@ -286,7 +286,7 @@ header p {
 /*Sezione portfolio*/
 
 .work {
-    margin: 64px 0;
+    margin: 32px 0;
     display: grid;
     grid-template-columns: 1fr;
 
@@ -320,6 +320,7 @@ header p {
     border-radius: 12px;
     overflow: hidden;
     max-width: 512px;
+    transform: translateY(0);
 }
 
 /*Footer*/
@@ -363,23 +364,22 @@ footer {
     }
 
     h2 {
-        margin: 32px 0 24px 0;
+        margin: 64px 0 24px 0;
         text-align: left;
+        font-size: $fs-300;
     }
 
-    // .wrapper {
-    //     display: grid;
-    //     grid-template-columns: 1fr;
-    // }
-
-    .wrapper div {
+    .page-intro {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         flex-wrap: wrap;
         gap: 24px;
         margin-bottom: 16px;
-        width: 100%;
+
+        &+p {
+            margin-top: 32px;
+        }
     }
 
     p {
@@ -387,19 +387,57 @@ footer {
         margin-top: 0;
     }
 
-    div+p {
-        margin-top: 32px;
-    }
-
     ul {
         list-style: disc;
         padding: 0 0 16px 0;
-        padding-left: 16px;
+        padding-left: 24px;
     }
 
     li {
         padding: 8px;
-        line-height: 1.7;
+        line-height: 1.6;
+    }
+}
+
+/*Immagini su pagina singola*/
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 64px;
+
+    &+h2,
+    &+p {
+        margin-top: 48px;
+    }
+
+    figure {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-bottom: 16px;
+        gap: 16px;
+
+        figcaption {
+            padding: 16px;
+            font-size: $fs-50;
+            line-height: 1.7;
+            border-left: 4px solid $primary-color-300;
+            width: 100%;
+        }
+    }
+
+    .big {
+        flex: 1 1 100%;
+    }
+
+    .medium {
+        flex: 2 1 calc(75% - 32px);
+    }
+
+    .small {
+        flex: 1 1 25%;
     }
 }
 
@@ -536,6 +574,14 @@ footer a:active svg {
 
 .about .wrapper {
     align-items: center;
+
+    &>div {
+        flex-basis: 50%;
+    }
+
+    &>div:first-of-type {
+        flex-grow: 2;
+    }
 }
 
 .about p {
@@ -699,18 +745,39 @@ footer a:active svg {
     }
 }
 
+@media (min-width:700px) {
+
+    .image-grid {
+
+        figure {
+            flex-wrap: nowrap;
+            gap: 32px;
+
+            .with-caption {
+                max-width: 75%;
+            }
+
+            &.bottom-caption {
+                flex-direction: column;
+            }
+
+            figcaption {
+                border-left: 4px solid $primary-color-300;
+                border-bottom: 0;
+                order: -1;
+            }
+
+            &:nth-child(2n) figcaption {
+                order: 1;
+            }
+        }
+    }
+}
+
 @media (min-width: 800px) {
 
     .about .wrapper {
         justify-content: flex-start;
-
-        &>div {
-            flex-basis: 50%;
-        }
-
-        &>div:first-of-type {
-            flex-grow: 2;
-        }
 
         h2 {
             text-align: left;
@@ -733,42 +800,39 @@ footer a:active svg {
         font-size: $fs-200;
     }
 
-    header p {
-        font-size: $fs-500;
+    header {
+        margin-bottom: 64px;
+
+        p {
+            font-size: $fs-500;
+        }
     }
 
     .page {
-        // .highlight-link {
-        //     margin-top: 0;
-        //     align-self: center;
-        // }
-
-        // h1,
-        // p,
-        // ul {
-        //     grid-column: 1/4;
-        // }
 
         h1 {
             font-size: $fs-500;
         }
 
-        // .wrapper {
-        //     grid-template-columns: 1fr 1fr 1fr 1fr;
-        // }
+        h2 {
+            font-size: $fs-400;
+        }
     }
 
+    .image-grid figure figcaption {
+        font-size: $fs-100;
+    }
 }
 
 @media (min-width: 1000px) {
 
     aside {
-        .wrapper {
-            gap: 64px;
-        }
-
         .work-desc {
             top: -1rem;
+        }
+
+        .work {
+            margin: 0 40px;
         }
     }
 
@@ -791,6 +855,19 @@ footer a:active svg {
     .page {
         h1 {
             font-size: $fs-600;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+
+            &>h1,
+            &>h2,
+            &>p,
+            &>ul,
+            .page-intro {
+                margin-left: 40px;
+                margin-right: 40px;
+            }
         }
     }
 }

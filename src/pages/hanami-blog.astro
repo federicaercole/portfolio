@@ -1,16 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { works } from "../components/works.js";
 import Card from "../components/Card.astro";
+import { works } from "../components/works.astro";
 import { Icon } from "astro-icon";
 
-const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
+const filteredWorks = works.filter(
+    (work) => `/${work.slug}` != Astro.url.pathname
+);
 ---
 
 <Layout title="Hanami Blog - Federica Ercole Portfolio">
     <main id="main" class="page">
         <div class="wrapper">
-            <div>
+            <div class="page-intro">
                 <h1>Hanami Blog</h1>
                 <a href="https://hanamiblog.net" class="highlight-link">
                     Vai al sito
@@ -31,7 +33,6 @@ const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
                 garantisce una certa flessibilità e una certa facilità d'uso nel
                 gestire il back-end.
             </p>
-
             <h2>Parte grafica e UI</h2>
             <p>
                 Negli anni la grafica e, più in generale, la struttura del sito
@@ -47,6 +48,23 @@ const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
                 ho scelto di snellire il più possibile la navigazione e la
                 sidebar mettendoci pochi link.
             </p>
+            <div class="image-grid">
+                <figure class="medium">
+                    <img
+                        src="../src/assets/images/hanami-blog-1.jpg"
+                        alt="Schermata dell'homepage di Hanami Blog su desktop"
+                    />
+                </figure>
+                <figure class="small bottom-caption">
+                    <img
+                        src="../src/assets/images/hanami-blog-2.jpg"
+                        alt="Schermata dell'homepage di Hanami Blog su mobile"
+                    />
+                    <figcaption>
+                        Come appare l'homepage da desktop e mobile
+                    </figcaption>
+                </figure>
+            </div>
             <h2>Parte tecnica</h2>
             <p>
                 Il tema attualmente utilizzato, così come quelli precedenti, non
@@ -60,6 +78,29 @@ const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
                 per rendere la pagina il più possibile accessibile anche a chi
                 usa uno screen reader.
             </p>
+            <div class="image-grid">
+                <figure class="big">
+                    <img
+                        class="with-caption"
+                        src="../src/assets/images/hanami-blog-3.jpg"
+                        alt="Schermata di Hanami Blog"
+                    />
+                    <figcaption>
+                        Esempio di un articolo su Hanami Blog
+                    </figcaption>
+                </figure>
+                <figure class="big">
+                    <img
+                        class="with-caption"
+                        src="../src/assets/images/hanami-blog-4.jpg"
+                        alt="Close-up di due elementi accessibili"
+                    />
+                    <figcaption>
+                        Due esempi di elementi accessibili del sito: il link per
+                        saltare la navigazione e l'accordion
+                    </figcaption>
+                </figure>
+            </div>
             <p>
                 Alcune funzionalità del sito sono state implementate tramite
                 plugin, tra cui il form dei contatti e il banner dei cookie.
