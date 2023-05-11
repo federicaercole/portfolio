@@ -1,0 +1,190 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Picture from "../components/Picture.astro";
+import { works } from "../components/works.astro";
+import { Icon } from "astro-icon";
+
+const filteredWorks = works.filter(
+    (work) => `/${work.slug}` != Astro.url.pathname
+);
+
+const folder = "shop";
+
+const images = [
+    {
+        name: "shop-1",
+        alt: "Schermata dell'homepage dello shop su desktop",
+    },
+    {
+        name: "shop-2",
+        alt: "Schermata dell'homepage dello shop su mobile",
+    },
+    {
+        name: "shop-3",
+        alt: "Schermata di una pagina del sito",
+    },
+    {
+        name: "shop-4",
+        alt: "Schermata del carrello",
+    },
+];
+
+//gif della validazione e della focus trap
+---
+
+<Layout title="Shop Online - Federica Ercole Portfolio">
+    <main id="main" class="page">
+        <div class="wrapper">
+            <div class="page-intro">
+                <h1>Shop Online</h1>
+                <a
+                    href="https://federicaercole.github.io/shopping-cart/"
+                    class="highlight-link"
+                >
+                    Vai al sito
+                    <Icon name="jam:arrow-right" aria-hidden="true" />
+                </a>
+            </div>
+            <p>
+                Un finto shop online fatto in React per prendere confidenza con
+                React Router.
+            </p>
+            <p>Funzionalità dello shop:</p>
+            <ul>
+                <li>Ricerca dei prodotti</li>
+                <li>Gestione del carrello</li>
+                <li>Breadcrumb</li>
+                <li>
+                    Visualizzazione dei prodotti in ordine alfabetico e per
+                    prezzo
+                </li>
+                <li>Gallery di immagini accessibili</li>
+            </ul>
+
+            <div class="image-grid">
+                <figure class="medium">
+                    <Picture
+                        alt={images[0].alt}
+                        folder={folder}
+                        image={images[0].name}
+                    />
+                </figure>
+                <figure class="mini bottom-caption">
+                    <Picture
+                        alt={images[1].alt}
+                        folder={folder}
+                        image={images[1].name}
+                    />
+                    <figcaption>
+                        Come appare l'homepage da desktop e mobile. Su mobile si
+                        scorrono i prodotti e le categorie nella barra di
+                        navigazione in orizzontale con uno swipe
+                    </figcaption>
+                </figure>
+            </div>
+
+            <h2>Grafica e UI</h2>
+            <p>
+                Ho deciso di usare dei colori scuri come colori principali per
+                dare un taglio moderno a un sito che tratta di giochi da tavolo,
+                ricordando i colori di siti di videogiochi come Steam. Come
+                accent color ho scelto l'arancio che spicca e si intona bene ai
+                toni di grigio e nero dei colori principali.
+            </p>
+
+            <p>
+                Nell'header ho scelto di mettere in evidenza la barra di ricerca
+                dei prodotti in modo simile ad Amazon. Nell'homepage ho
+                preferito dare spazio ai singoli prodotti divisi per categorie
+                rispetto all'uso di carousel per mostrare i prodotti in rilievo,
+                poichè risultano essere <a
+                    href="https://www.nngroup.com/articles/auto-forwarding/"
+                    >elementi poco accessibili e in generale non molto usati
+                    dagli utenti</a
+                >.
+            </p>
+
+            <div class="image-grid">
+                <figure class="big">
+                    <Picture
+                        alt={images[2].alt}
+                        folder={folder}
+                        image={images[2].name}
+                    />
+                    <figcaption>Schermata di un singolo prodotto</figcaption>
+                </figure>
+                <figure class="big">
+                    <Picture
+                        alt={images[3].alt}
+                        folder={folder}
+                        image={images[3].name}
+                    />
+                    <figcaption>Schermata del carrello</figcaption>
+                </figure>
+            </div>
+
+            <h2>Dettagli tecnici</h2>
+            <p>Vorrei soffermarmi in particolare su tre aspetti:</p>
+            <ul>
+                <li>Carrello</li>
+                <li>Validazione degli input</li>
+                <li>Accessibilità della gallery</li>
+            </ul>
+
+            <p>Tutti gestiti senza l'uso di particolari package.</p>
+
+            <p>
+                Ho scelto di far gestire il carrello con due diversi stati, uno
+                per gestire i prodotti e un altro per la quantità dei vari
+                prodotti inseriti nel carrello. Ho preferito separare in due
+                diversi stati per evitare di modificare i dati dei prodotti.
+            </p>
+
+            <p>
+                Dato che il carrello e le funzioni per gestire le quantità sono
+                condivise da diversi componenti (header, pagina del singolo
+                prodotto, pagina del carrello), ho deciso di usare un Context
+                per rendere più semplice la condivisione di stati e funzioni.
+            </p>
+
+            <p>
+                Per la validazione dei campi di testo ho voluto provare un
+                approccio diverso dal solito, detto <a
+                    href="https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/#4-reward-early-punish-late"
+                    >Reward Early, Punish Late</a
+                >. Con questo pattern si avvisa l'utente dell'errore quando
+                lascia l'input, ma si ha un feedback istantaneo quando l'utente
+                corregge l'errore.
+            </p>
+
+            <p>
+                Per gestire in modo accessibile la navigazione della gallery
+                sono stati implementati sia la navigazione tramite la tastiera
+                (frecce sinistra e destra, tasto esc per uscire dalla finestra),
+                sia la navigazione tramite il tasto tab. In questo caso ho
+                seguito le linee guida del WCAG che consiglia di implementare la
+                navigazione con tab nella sola finestra, in modo tale da evitare
+                di avere il cursore intrappolato nella pagina sottostante non
+                visibile.
+            </p>
+
+            <h2>Cosa ho imparato da questo progetto</h2>
+            <p>Da questo progetto ho imparato principalmente a:</p>
+            <ul>
+                <li>usare Context e Ref in React</li>
+                <li>
+                    capire come strutturare il codice per più pagine con
+                    molteplici componenti
+                </li>
+                <li>implementare l'accessibilità di alcuni elementi</li>
+            </ul>
+        </div>
+    </main>
+    <aside>
+        <div class="wrapper">
+            <h2>Altri progetti</h2>
+            {filteredWorks.map((work) => <Card work={work} />)}
+        </div>
+    </aside>
+</Layout>

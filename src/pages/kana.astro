@@ -54,17 +54,17 @@ const images = [
             </p>
 
             <p>
-                Ho scelto di fare questa app per aggiungere qualcosa di nuovo al
-                mio sito Hanami Blog, che potesse essere utile a chi si sta
-                approcciando allo studio di questa lingua.
+                Ho voluto creare questa app per aggiungere al mio sito <a
+                    href="/hanami-blog">Hanami Blog</a
+                > una funzione utile a chi si sta approcciando allo studio del giapponese.
             </p>
 
             <p>
-                Esistono altri siti con lo stesso scopo, ma quello che rende
-                diversa quest'app è il fatto che non si ripassano i singoli
-                caratteri ma i caratteri all'interno di parole giapponesi. È
-                come se al posto di ripassare le singole lettere dell'alfabeto
-                ci si esercitasse a leggere parole.
+                In realtà esistono altri siti con lo stesso scopo, ma ciò che
+                rende diversa quest'app è la possibilità di ripassare i
+                caratteri all'interno di parole giapponesi. Per fare un paragone
+                con l'italiano, è come esercitarsi a riconoscere le lettere
+                dell'alfabeto attraverso le parole e non singolarmente.
             </p>
 
             <h2>Come funziona</h2>
@@ -74,59 +74,60 @@ const images = [
             </p>
 
             <div class="image-grid">
-                <figure class="small bottom-caption">
+                <figure class="small">
                     <Picture
                         image={images[0].name}
                         folder={folder}
                         alt={images[0].alt}
                     />
                     <figcaption>
-                        <span>1</span>L'utente seleziona il sillabario vuole
-                        ripassare.
+                        <span>1</span>L'utente seleziona il sillabario che
+                        desidera ripassare.
                     </figcaption>
                 </figure>
-                <figure class="small bottom-caption">
+                <figure class="small">
                     <Picture
                         image={images[1].name}
                         folder={folder}
                         alt={images[1].alt}
                     />
                     <figcaption>
-                        <span>2</span> L'utente sceglie quali caratteri e quante
-                        parole desidera ripassare. Se non esistono parole con certe
-                        combinazioni appare un messaggio per avvisare l'utente.
+                        <span>2</span> L'utente sceglie i caratteri e il numero di
+                        parole da ripassare. Se non esistono parole con certe combinazioni
+                        di caratteri appare un messaggio per avvisare l'utente di
+                        selezionare caratteri aggiuntivi.
                     </figcaption>
                 </figure>
-                <figure class="small bottom-caption">
+                <figure class="small">
                     <Picture
                         image={images[2].name}
                         folder={folder}
                         alt={images[2].alt}
                     />
                     <figcaption>
-                        <span>3</span> Inizia la parte di revisione delle parole,
-                        l'utente legge la parola giapponese e scrive nell'input la
-                        relativa lettura in lettere. Una volta inviata la risposta
-                        l'app mostra la parola successiva se la risposta è corretta,
-                        altrimenti offre la possibilità di vedere la soluzione.
+                        <span>3</span> Inizia il ripasso: l'utente legge la parola
+                        giapponese e scrive nel campo di testo la relativa lettura
+                        in lettere. All'invio della risposta l'app mostra la parola
+                        successiva se la risposta è corretta, altrimenti offre la
+                        possibilità di vedere la soluzione.
                     </figcaption>
                 </figure>
-                <figure class="small bottom-caption">
+                <figure class="small">
                     <Picture
                         image={images[3].name}
                         folder={folder}
                         alt={images[3].alt}
                     />
                     <figcaption>
-                        <span>4</span> Una volta incontrate tutte le parole termina
-                        la sessione e viene mostrato il punteggio.
+                        <span>4</span> Una volta ripassate tutte le parole disponibili
+                        termina la sessione e viene mostrato il punteggio.
                     </figcaption>
                 </figure>
             </div>
 
             <p>
-                È possibile rivedere tutte le parole incontrate in una comoda
-                tabella.
+                L'utente ha anche la possibilità di rivedere tutte le parole
+                incontrate in una comoda tabella.
             </p>
             <Picture
                 image={images[4].name}
@@ -134,7 +135,7 @@ const images = [
                 alt={images[4].alt}
             />
 
-            <h2>Parte grafica e UI</h2>
+            <h2>Grafica e UI</h2>
             <p>
                 Essendo parte del sito principale ho cercato di rendere l'app
                 simile al sito usando gli stessi colori. Per distinguerla dal
@@ -144,17 +145,16 @@ const images = [
             </p>
 
             <p>
-                Per quanto riguarda l'interfaccia ho cercato il più possibile di
-                spezzare le varie fasi in più pagine per rendere più
-                comprensibile il percorso da seguire per l'utente. Nelle fasi
-                iniziali avevo pensato di raggruppare in una sola pagina la
-                scelta del sillabario e quello della selezione dei caratteri, ho
-                scelto di separarle per evitare di dare troppe opzioni in una
-                sola pagina e per far comprendere che si può ripassare un solo
-                sillabario per volta.
+                Ho cercato il più possibile di spezzare le varie fasi in più
+                pagine per rendere più comprensibile il percorso da seguire.
+                Inizialmente avevo pensato di raggruppare in una sola pagina sia
+                la scelta del sillabario che le altre impostazioni, ho scelto
+                infine di separare in due fasi per evitare di dare troppe
+                opzioni in una sola pagina e per far comprendere che si può
+                ripassare un solo sillabario alla volta.
             </p>
 
-            <h2>Parte tecnica</h2>
+            <h2>Dettagli tecnici</h2>
             <p>
                 Ho scelto di costruire l'app in un'unica pagina per evitare il
                 caricamento da parte dell'utente di una pagina diversa del
@@ -163,16 +163,22 @@ const images = [
             </p>
 
             <p>
-                La funzione che caratterizza l'app è senza dubbio quella che
-                sceglie le parole da mostrare all'utente in maniera casuale a
-                seconda delle opzioni inserite.
+                La <strong>funzione che caratterizza l'app</strong> è senza dubbio
+                quella che si occupa di scegliere le parole da mostrare all'utente
+                in maniera casuale a seconda delle opzioni inserite.
             </p>
 
             <p>
-                Per far in modo di selezionare le parole in base alle sillabe,
-                ho scelto di trascrivere ciascuna parola in lettere suddividendo
-                ciascuna sillaba in un array.
+                Quando l'utente sceglie determinati caratteri, l'app mostra
+                parole che contengono solamente quei caratteri scelti. Il modo
+                più semplice per determinare se una certa parola contiene o meno
+                certi caratteri è ricercare le singole sillabe all'interno di un
+                array. Per questo ho scelto di trascrivere ciascuna parola
+                giapponese in lettere suddividendo ciascuna sillaba in un array
+                (la proprietà "romaji" dell'esempio sottostante).
             </p>
+
+            <code>kana: "いえ", romaji: ["i", "e"], kanji: "家"</code>
 
             <p>
                 Le sillabe selezionate dall'utente vengono memorizzate in un
@@ -190,14 +196,15 @@ const images = [
                 scegliendo un numero massimo di parole determinato dall'utente.
             </p>
 
+            <code></code>
+
             <h2>Cosa ho imparato da questo progetto</h2>
             <p>Da questo progetto ho imparato principalmente a:</p>
             <ul>
                 <li>gestire gli stati e gli effetti in React</li>
                 <li>strutturare meglio il codice</li>
                 <li>
-                    trovare una soluzione a problemi mai affrontati prima
-                    (funzione principale dell'app)
+                    trovare una soluzione per la funzione principale dell'app
                 </li>
             </ul>
         </div>

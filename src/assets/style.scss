@@ -136,9 +136,14 @@ svg {
 
 /*Testo*/
 
-p {
-    margin: 1.5rem 0;
+p:not(header>p, footer>p) {
+    margin: 1rem 0;
     line-height: 1.7;
+    max-width: 55ch;
+
+    &+& {
+        margin: 1.5rem 0;
+    }
 }
 
 strong {
@@ -349,7 +354,7 @@ footer {
         font-size: $fs-50;
         flex-basis: 100%;
         text-align: center;
-        margin: 32px 0 0 0;
+        margin: 2rem 0 0 0;
     }
 }
 
@@ -363,10 +368,15 @@ footer {
         text-align: left;
     }
 
-    h2 {
+    h2,
+    .error {
         margin: 64px 0 24px 0;
         text-align: left;
         font-size: $fs-300;
+    }
+
+    .error {
+        font-size: $fs-500;
     }
 
     .page-intro {
@@ -380,11 +390,6 @@ footer {
         &+p {
             margin-top: 32px;
         }
-    }
-
-    p {
-        max-width: 60ch;
-        margin-top: 0;
     }
 
     ul {
@@ -410,7 +415,7 @@ footer {
 
     &+h2,
     &+p {
-        margin-top: 48px;
+        margin-top: 3rem;
     }
 
     figure {
@@ -449,6 +454,7 @@ footer {
     }
 
     .small {
+        justify-content: space-evenly;
         flex: 1 1 calc(50% - 32px);
 
         img {
@@ -457,6 +463,7 @@ footer {
     }
 
     .mini {
+        justify-content: space-evenly;
         flex: 1 1 25%;
     }
 
@@ -603,10 +610,6 @@ footer a:active svg {
     &>div:first-of-type {
         flex-grow: 2;
     }
-}
-
-.about p {
-    max-width: 50ch;
 }
 
 .with-bg {
@@ -782,7 +785,7 @@ footer a:active svg {
                 order: -1;
             }
 
-            &:nth-child(2n) figcaption {
+            &:nth-child(2n):not(.small) figcaption {
                 order: 1;
             }
         }
