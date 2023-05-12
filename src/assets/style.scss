@@ -157,13 +157,13 @@ h2 {
 
 h1 {
     color: $accent-color-500;
-    font-size: $fs-500;
+    font-size: clamp($fs-500, 4vw + $fs-100, $fs-700);
     text-align: center;
 }
 
 h2 {
     color: $primary-color-200;
-    font-size: $fs-400;
+    font-size: clamp($fs-400, $fs-100 + 4vw, $fs-500);
     margin-bottom: 16px;
     text-align: center;
     flex-basis: 100%;
@@ -240,7 +240,7 @@ nav {
 header p {
     @include vertical-align-center();
     flex-direction: column;
-    font-size: $fs-300;
+    font-size: clamp($fs-300, $fs-100 + 2vw, $fs-500);
     font-weight: 500;
     margin: 64px 0 0 0;
     text-align: center;
@@ -306,7 +306,7 @@ header p {
     flex-direction: column;
 
     h3 {
-        font-size: $fs-300;
+        font-size: clamp($fs-300, $fs-100 + 2vw, $fs-400);
         font-weight: 600;
     }
 
@@ -363,7 +363,7 @@ footer {
 .page {
 
     h1 {
-        font-size: $fs-400;
+        font-size: clamp($fs-400, $fs-100 + 4vw, $fs-600);
         color: $primary-color-200;
         text-align: left;
     }
@@ -372,7 +372,7 @@ footer {
     .error {
         margin: 64px 0 24px 0;
         text-align: left;
-        font-size: $fs-300;
+        font-size: clamp($fs-300, $fs-100 + 2vw, $fs-400);
     }
 
     .error {
@@ -402,6 +402,16 @@ footer {
         padding: 8px 0;
         line-height: 1.6;
     }
+
+    pre {
+        background-color: $primary-color-900 !important;
+        width: 100%;
+        font-size: $fs-50;
+        word-break: break-word;
+        white-space: pre-wrap;
+        border-left: 4px solid $primary-color-300;
+        padding: 32px;
+    }
 }
 
 /*Immagini su pagina singola*/
@@ -423,7 +433,7 @@ footer {
         flex-wrap: wrap;
         align-items: flex-start;
         margin-bottom: 16px;
-        gap: 16px;
+        gap: clamp(16px, 3vmax, 32px);
 
         figcaption {
             padding: 16px;
@@ -747,7 +757,7 @@ footer a:active svg {
 
     .work {
         grid-template-columns: 1fr 1fr;
-        gap: 16px;
+        gap: clamp(16px, 3vmax, 64px);
         align-items: center;
     }
 
@@ -768,30 +778,6 @@ footer a:active svg {
     }
 }
 
-@media (min-width:700px) {
-
-    .image-grid {
-
-        figure {
-            flex-wrap: nowrap;
-            gap: 32px;
-
-            &.bottom-caption {
-                flex-direction: column;
-            }
-
-            figcaption {
-                border-left: 4px solid $primary-color-300;
-                order: -1;
-            }
-
-            &:nth-child(2n):not(.small) figcaption {
-                order: 1;
-            }
-        }
-    }
-}
-
 @media (min-width: 800px) {
 
     .about .wrapper {
@@ -802,43 +788,28 @@ footer a:active svg {
         }
     }
 
-    .work-desc h3 {
-        font-size: $fs-400;
-    }
-
-    .work {
-        gap: 32px;
-    }
-
-    h1 {
-        font-size: $fs-600;
-    }
-
     ul {
         font-size: $fs-200;
     }
 
     header {
         margin-bottom: 64px;
-
-        p {
-            font-size: $fs-500;
-        }
     }
 
-    .page {
+    .image-grid {
 
-        h1 {
-            font-size: $fs-500;
+        figure {
+            flex-wrap: nowrap;
+
+            figcaption {
+                order: -1;
+                font-size: $fs-100;
+            }
+
+            &:nth-child(2n):not(.small) figcaption {
+                order: 1;
+            }
         }
-
-        h2 {
-            font-size: $fs-400;
-        }
-    }
-
-    .image-grid figure figcaption {
-        font-size: $fs-100;
     }
 }
 
@@ -850,34 +821,19 @@ footer a:active svg {
         }
     }
 
-    .work {
-        gap: 64px;
-    }
-
-    h1 {
-        font-size: $fs-700;
-    }
-
-    h2 {
-        font-size: $fs-500;
-    }
-
     p {
         font-size: $fs-200;
     }
 
     .page {
-        h1 {
-            font-size: $fs-600;
-        }
-
         .wrapper {
-            max-width: 1200px;
+            max-width: 75rem;
 
             &>h1,
             &>h2,
             &>p,
             &>ul,
+            &>pre,
             .page-intro {
                 margin-left: 40px;
                 margin-right: 40px;

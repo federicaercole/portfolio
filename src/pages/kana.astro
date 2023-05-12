@@ -4,6 +4,7 @@ import Card from "../components/Card.astro";
 import { works } from "../components/works.astro";
 import { Icon } from "astro-icon";
 import Picture from "../components/Picture.astro";
+import { Code } from "astro/components";
 
 const filteredWorks = works.filter(
     (work) => `/${work.slug}` != Astro.url.pathname
@@ -178,7 +179,12 @@ const images = [
                 (la proprietà "romaji" dell'esempio sottostante).
             </p>
 
-            <code>kana: "いえ", romaji: ["i", "e"], kanji: "家"</code>
+            <Code
+                code={`const hiraganaWords = [{ kana: "あか", romaji: ["a","ka"], kanji: "赤" }, 
+                        //...
+                        ]`}
+                lang="js"
+            />
 
             <p>
                 Le sillabe selezionate dall'utente vengono memorizzate in un
@@ -196,7 +202,42 @@ const images = [
                 scegliendo un numero massimo di parole determinato dall'utente.
             </p>
 
-            <code></code>
+            <Code
+                code={`//funzione che seleziona parole in modo casuale
+                function selectWordsRandom(filteredWords) {
+                    const selectedWordsSet = new Set();
+                
+                    if (filteredWords.length > maxNumberOfWords) {
+                      while (selectedWordsSet.size < maxNumberOfWords) {
+                        const randomIndex = Math.floor(Math.random() * filteredWords.length);
+                        selectedWordsSet.add(filteredWords[randomIndex]);
+                      }
+                      setSelectedWords([...selectedWordsSet]);
+                    } else {
+//se le parole disponibili sono meno dell'opzione scelta dall'utente mescola l'array
+                      shuffle(filteredWords);
+                      setMaxNumberOfWords(filteredWords.length);
+                      setSelectedWords(filteredWords);
+                    }
+                  }
+
+// funzione per determinare l'array di parole con determinate sillabe         
+function setArrayOfWords() {
+                    const array = isHiragana ? hiraganaWords : katakanaWords;
+                    if (selectedKana.length === (totalKana.length + initialSounds.length)) {
+                      return array;
+                    } else {
+                      return array.filter(word => word.romaji.every((letter) => {
+                        return selectedKana.indexOf(letter) !== -1;
+                      }))
+                    }
+                  }`}
+                lang="js"
+            />
+            <p>
+                Vedi il <a href="https://github.com/federicaercole/kana-app"
+                    >codice completo su Github</a>
+            </p>
 
             <h2>Cosa ho imparato da questo progetto</h2>
             <p>Da questo progetto ho imparato principalmente a:</p>
