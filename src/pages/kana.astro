@@ -38,7 +38,7 @@ const images = [
 
 <Layout title="Kana App - Federica Ercole Portfolio">
     <main id="main" class="page">
-        <div class="wrapper">
+        <article class="wrapper">
             <div class="page-intro">
                 <h1>Kana App</h1>
                 <a
@@ -236,7 +236,8 @@ function setArrayOfWords() {
             />
             <p>
                 Vedi il <a href="https://github.com/federicaercole/kana-app"
-                    >codice completo su Github</a>
+                    >codice completo su Github</a
+                >
             </p>
 
             <h2>Cosa ho imparato da questo progetto</h2>
@@ -248,12 +249,10 @@ function setArrayOfWords() {
                     trovare una soluzione per la funzione principale dell'app
                 </li>
             </ul>
-        </div>
+        </article>
     </main>
-    <aside>
-        <div class="wrapper">
-            <h2>Altri progetti</h2>
-            {filteredWorks.map((work) => <Card work={work} />)}
-        </div>
+    <aside class="wrapper">
+        <h2>Altri progetti</h2>
+        {filteredWorks.map((work) => <Card work={work} />)}
     </aside>
 </Layout>

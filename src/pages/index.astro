@@ -30,14 +30,12 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 		</p>
 	</header>
 	<main id="main">
-		<section>
-			<div class="wrapper">
-				<h2>Portfolio</h2>
-				{works.map((work) => <Card work={work} />)}
-			</div>
-		</section>
-		<section class="with-bg about">
-			<div class="wrapper">
+		<div class="wrapper">
+			<h2>Portfolio</h2>
+			{works.map((work) => <Card work={work} />)}
+		</div>
+		<div class="with-bg about">
+			<article class="wrapper">
 				<h2>Mi presento</h2>
 				<div>
 					<p>
@@ -71,30 +69,23 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 						imparare!
 					</p>
 				</div>
-				<div class="img-container">
-					<img
-						src="../src/assets/images/foto.jpg"
-						alt="Federica Ercole sorridente"
-					/>
-				</div>
-			</div>
-		</section>
-		<section class="skills">
-			<div class="wrapper">
-				<h2>Competenze e strumenti</h2>
-				<div>
-					<h3 class="web">Web</h3>
-					<ul>
-						{webSkills.map((skill) => <li>{skill}</li>)}
-					</ul>
-				</div>
-				<div>
-					<h3 class="design">Design</h3>
-					<ul>
-						{designSkills.map((skill) => <li>{skill}</li>)}
-					</ul>
-				</div>
-			</div>
-		</section>
+				<img src="/images/foto.jpg" alt="Federica Ercole sorridente" />
+			</article>
+		</div>
+		<div class="skills wrapper">
+			<h2>Competenze e strumenti</h2>
+			<article>
+				<h3 class="web">Web</h3>
+				<ul>
+					{webSkills.map((skill) => <li>{skill}</li>)}
+				</ul>
+			</article>
+			<article>
+				<h3 class="design">Design</h3>
+				<ul>
+					{designSkills.map((skill) => <li>{skill}</li>)}
+				</ul>
+			</article>
+		</div>
 	</main>
 </Layout>

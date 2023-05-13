@@ -13,7 +13,7 @@ const { title, subtitle, desc, slug, alt } = Astro.props.work;
 import { Icon } from "astro-icon";
 ---
 
-<div class="work">
+<article class="work">
 	<div class="work-desc">
 		<h3>
 			<a href=`/${slug}` class="highlight-link">
@@ -28,10 +28,10 @@ import { Icon } from "astro-icon";
 		<a href=`/${slug}` tabindex="-1" aria-hidden="true">
 			<img
 				alt={alt}
-				src=`../src/assets/images/${slug}-cover.png`
-				srcset=`../src/assets/images/${slug}-cover.png 1x,
-			../src/assets/images/${slug}-cover-big.png 2x`
+				src=`/images/${slug}-cover.png`
+				srcset=`/images/${slug}-cover.png 1x,
+			/images/${slug}-cover-big.png 2x`
 			/>
 		</a>
 	</div>
-</div>
+</article>

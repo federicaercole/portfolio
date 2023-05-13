@@ -29,13 +29,11 @@ const images = [
         alt: "Schermata del carrello",
     },
 ];
-
-//gif della validazione e della focus trap
 ---
 
 <Layout title="Shop Online - Federica Ercole Portfolio">
     <main id="main" class="page">
-        <div class="wrapper">
+        <article class="wrapper">
             <div class="page-intro">
                 <h1>Shop Online</h1>
                 <a
@@ -70,7 +68,7 @@ const images = [
                         image={images[0].name}
                     />
                 </div>
-                <figure class="mini">
+                <figure class="mini bottom-caption">
                     <Picture
                         alt={images[1].alt}
                         folder={folder}
@@ -157,7 +155,6 @@ const images = [
                 lascia l'input, ma si ha un feedback istantaneo quando l'utente
                 corregge l'errore.
             </p>
-
             <p>
                 Per gestire in modo accessibile la navigazione della gallery
                 sono stati implementati sia la navigazione tramite la tastiera
@@ -168,7 +165,33 @@ const images = [
                 di avere il cursore intrappolato nella pagina sottostante non
                 visibile.
             </p>
-
+            <div class="image-grid">
+                <figure class="small">
+                    <video controls>
+                        <source
+                            src="/images/shop/validation.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+                    <figcaption>
+                        Viene mostrato il messaggio d'errore quando si abbandona
+                        il campo ma quando si corregge il messaggio sparisce
+                        all'istante
+                    </figcaption>
+                </figure>
+                <figure class="small">
+                    <video controls>
+                        <source
+                            src="/images/shop/focus-trap.mp4"
+                            type="video/mp4"
+                        /></video
+                    >
+                    <figcaption>
+                        Il cursore non supera i confini della finestra della
+                        gallery
+                    </figcaption>
+                </figure>
+            </div>
             <h2>Cosa ho imparato da questo progetto</h2>
             <p>Da questo progetto ho imparato principalmente a:</p>
             <ul>
@@ -179,12 +202,11 @@ const images = [
                 </li>
                 <li>implementare l'accessibilità di alcuni elementi</li>
             </ul>
-        </div>
+        </article>
     </main>
-    <aside>
-        <div class="wrapper">
-            <h2>Altri progetti</h2>
-            {filteredWorks.map((work) => <Card work={work} />)}
-        </div>
+
+    <aside class="wrapper">
+        <h2>Altri progetti</h2>
+        {filteredWorks.map((work) => <Card work={work} />)}
     </aside>
 </Layout>

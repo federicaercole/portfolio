@@ -33,7 +33,7 @@ const images = [
 
 <Layout title="Hanami Blog - Federica Ercole Portfolio">
     <main id="main" class="page">
-        <div class="wrapper">
+        <article class="wrapper">
             <div class="page-intro">
                 <h1>Hanami Blog</h1>
                 <a href="https://hanamiblog.net" class="highlight-link">
@@ -86,7 +86,7 @@ const images = [
                         image={images[0].name}
                     />
                 </div>
-                <figure class="mini">
+                <figure class="mini bottom-caption">
                     <Picture
                         alt={images[1].alt}
                         folder={folder}
@@ -165,12 +165,10 @@ const images = [
                     dei temi
                 </li>
             </ul>
-        </div>
+        </article>
     </main>
-    <aside>
-        <div class="wrapper">
-            <h2>Altri progetti</h2>
-            {filteredWorks.map((work) => <Card work={work} />)}
-        </div>
+    <aside class="wrapper">
+        <h2>Altri progetti</h2>
+        {filteredWorks.map((work) => <Card work={work} />)}
     </aside>
 </Layout>
