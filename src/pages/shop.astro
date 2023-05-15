@@ -31,7 +31,11 @@ const images = [
 ];
 ---
 
-<Layout title="Shop Online - Federica Ercole Portfolio">
+<Layout
+    title="Shop Online - Federica Ercole Portfolio"
+    index="index"
+    description="Case study di un finto shop online costruito con React"
+>
     <main id="main" class="page">
         <article class="wrapper">
             <div class="page-intro">
@@ -45,8 +49,8 @@ const images = [
                 </a>
             </div>
             <p>
-                Un finto shop online fatto in React per prendere confidenza con
-                React Router.
+                Un finto shop online costruito in React per prendere confidenza
+                con React Router.
             </p>
             <p>Funzionalità dello shop:</p>
             <ul>
@@ -61,13 +65,14 @@ const images = [
             </ul>
 
             <div class="image-grid">
-                <div class="medium">
+                <figure class="medium">
                     <Picture
                         alt={images[0].alt}
                         folder={folder}
                         image={images[0].name}
                     />
-                </div>
+                    <figcaption>Come appare l'homepage su desktop</figcaption>
+                </figure>
                 <figure class="mini bottom-caption">
                     <Picture
                         alt={images[1].alt}
@@ -75,9 +80,8 @@ const images = [
                         image={images[1].name}
                     />
                     <figcaption>
-                        Come appare l'homepage da desktop e mobile. Su mobile si
-                        scorrono i prodotti e le categorie nella barra di
-                        navigazione in orizzontale con uno swipe
+                        Su mobile si scorrono i prodotti e le categorie nella
+                        barra di navigazione in orizzontale con uno swipe
                     </figcaption>
                 </figure>
             </div>
@@ -160,10 +164,12 @@ const images = [
                 sono stati implementati sia la navigazione tramite la tastiera
                 (frecce sinistra e destra, tasto esc per uscire dalla finestra),
                 sia la navigazione tramite il tasto tab. In questo caso ho
-                seguito le linee guida del WCAG che consiglia di implementare la
-                navigazione con tab nella sola finestra, in modo tale da evitare
-                di avere il cursore intrappolato nella pagina sottostante non
-                visibile.
+                seguito le <a
+                    href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+                    >linee guida del W3C</a
+                > che consiglia di implementare la navigazione con tab nella sola
+                finestra, in modo tale da evitare di avere il cursore intrappolato
+                nella pagina sottostante non visibile.
             </p>
             <div class="image-grid">
                 <figure class="small">

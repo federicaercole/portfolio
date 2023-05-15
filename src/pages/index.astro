@@ -17,7 +17,11 @@ const webSkills = [
 const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 ---
 
-<Layout title="Federica Ercole - Front-End Developer e Designer">
+<Layout
+	title="Federica Ercole - Front-End Developer e Designer"
+	description="Portfolio di Federica Ercole, appassionata di grafica e di internet, designer e aspirante front-end developer"
+	index="index"
+>
 	<header>
 		<h1>Federica Ercole</h1>
 		<p>
@@ -30,48 +34,50 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 		</p>
 	</header>
 	<main id="main">
+		<article class="wrapper about">
+			<h2>Mi presento</h2>
+			<div>
+				<p>
+					Sono Federica Ercole e sono un'appassionata di grafica e di
+					internet.
+				</p>
+
+				<p>
+					Ho iniziato <strong
+						>i miei primi passi nel web nei primi anni 2000</strong
+					>
+					con HTML e CSS, quando si usavano tabelle per posizionare gli
+					elementi di una pagina e tanti siti facevano uso di Flash.
+				</p>
+
+				<p>
+					Successivamente ho iniziato ad usare il CMS WordPress.org
+					per creare siti dinamici, creando temi da zero sia dal punto
+					di vista dell'HTML e CSS che della grafica.
+				</p>
+
+				<p>
+					<strong>Negli ultimi 6 mesi</strong> ho iniziato a studiare JavaScript
+					e React seguendo vari corsi.
+				</p>
+
+				<p>
+					Sono sempre alla ricerca nuove opportunità per migliorare le
+					mie conoscenze. Non si finisce mai di imparare!
+				</p>
+			</div>
+			<img
+				src="/images/foto.jpg"
+				alt="Federica Ercole sorridente"
+				width="350"
+				height="auto"
+			/>
+		</article>
 		<div class="wrapper">
 			<h2>Portfolio</h2>
 			{works.map((work) => <Card work={work} />)}
 		</div>
-		<div class="with-bg about">
-			<article class="wrapper">
-				<h2>Mi presento</h2>
-				<div>
-					<p>
-						Sono Federica Ercole e sono un'appassionata di grafica e
-						di internet.
-					</p>
 
-					<p>
-						Ho iniziato i miei primi passi nel web nei primi anni
-						2000 con HTML e CSS, quando si usavano tabelle per
-						posizionare gli elementi di una pagina e tanti siti
-						facevano uso di Flash.
-					</p>
-
-					<p>
-						Successivamente ho iniziato ad usare il CMS
-						WordPress.org per creare siti dinamici, creando temi da
-						zero sia dal punto di vista dell'HTML e CSS che della
-						grafica.
-					</p>
-
-					<p>
-						Negli ultimi 6 mesi ho iniziato a studiare JavaScript e
-						React seguendo vari corsi online, tra cui The Odin
-						Project.
-					</p>
-
-					<p>
-						Sono sempre alla ricerca nuove opportunità per
-						migliorare le mie conoscenze. Non si finisce mai di
-						imparare!
-					</p>
-				</div>
-				<img src="/images/foto.jpg" alt="Federica Ercole sorridente" />
-			</article>
-		</div>
 		<div class="skills wrapper">
 			<h2>Competenze e strumenti</h2>
 			<article>

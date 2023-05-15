@@ -31,7 +31,11 @@ const images = [
 ];
 ---
 
-<Layout title="Hanami Blog - Federica Ercole Portfolio">
+<Layout
+    title="Hanami Blog - Federica Ercole Portfolio"
+    index="index"
+    description="Case study di Hanami Blog, un sito dedicato a chi studia la lingua giapponese"
+>
     <main id="main" class="page">
         <article class="wrapper">
             <div class="page-intro">
@@ -58,52 +62,49 @@ const images = [
             <h2>Grafica e UI</h2>
             <p>
                 Negli anni la grafica e, più in generale, la struttura del sito
-                ha subito diversi cambiamenti. Nella grafica attuale ho deciso
-                di mantenere i colori precedenti: come colore principale
-                l'arancio e come secondario un rosa molto scuro, quasi rosso.
+                hanno subito diversi cambiamenti. Nella grafica attuale ho
+                deciso di mantenere i colori precedenti: l'arancio e un rosa
+                molto scuro, quasi rosso.
             </p>
             <p>
-                Ho scelto questi colori perché volevo distaccarmi dai soliti
-                colori associati al Giappone e comunicare un senso di allegria
+                Ho scelto questi colori perché non volevo usare i soliti colori
+                associati al Giappone e volevo comunicare un senso di leggerezza
                 per lo studio della lingua. In particolare il rosa è stato
                 scelto per simboleggiare i fiori di ciliegio ("Hanami" significa
                 "osservare i fiori di ciliegio").
             </p>
             <p>
                 La <strong>struttura dell'interfaccia</strong> è quella classica
-                di un blog con un homepage da cui arrivare agli articoli scritti.
-                A differenza dei blog che presentano molti link per le categorie
-                e i tag, ho scelto <strong
+                di un blog con un homepage che presenta tutti gli articoli. A differenza
+                dei blog che presentano molti link per le categorie e i tag, ho scelto
+                di <strong
                     >snellire il più possibile la navigazione e la sidebar</strong
-                >, in modo tale da mostrare alle persone le pagine che più
-                interessano.
+                >, in modo tale da mostrare principalmente le pagine più utili.
             </p>
             <div class="image-grid">
-                <div class="medium">
+                <figure class="medium">
                     <Picture
                         alt={images[0].alt}
                         folder={folder}
                         image={images[0].name}
                     />
-                </div>
+                    <figcaption>Come appare l'homepage su desktop</figcaption>
+                </figure>
                 <figure class="mini bottom-caption">
                     <Picture
                         alt={images[1].alt}
                         folder={folder}
                         image={images[1].name}
                     />
-                    <figcaption>
-                        Come appare l'homepage da desktop e mobile
-                    </figcaption>
+                    <figcaption>Come appare l'homepage su mobile</figcaption>
                 </figure>
             </div>
             <h2>Dettagli tecnici</h2>
             <p>
-                Il tema attualmente utilizzato, così come quelli precedenti, non
-                deriva da alcun tema esistente e non fa uso di blocchi. Pur
-                esistendo una gran varietà di temi per WordPress, ho deciso di
-                crearlo da zero per mettermi alla prova e cercare di costruire
-                qualcosa di unico.
+                Il tema attuale non deriva da alcun tema esistente e non fa uso
+                di blocchi. Pur esistendo una gran varietà di temi per
+                WordPress, ho deciso di crearlo da zero per mettermi alla prova
+                e cercare di costruire qualcosa di unico.
             </p>
             <p>
                 Ho posto particolare attenzione all'uso dei corretti tag HTML
@@ -140,9 +141,8 @@ const images = [
 
             <h2>Cosa ho imparato da questo progetto</h2>
             <p>
-                Posso dire, senza alcun dubbio, che è il progetto che mi ha
-                aiutato di più a migliorare le mie conoscenze, non solo a
-                livello di codice o di grafica ma anche per aver imparato a:
+                Posso dire che è il progetto che mi ha aiutato di più a
+                migliorare le mie conoscenze. In particolare ho imparato a:
             </p>
             <ul>
                 <li>

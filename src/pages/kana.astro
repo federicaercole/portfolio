@@ -36,7 +36,11 @@ const images = [
 ];
 ---
 
-<Layout title="Kana App - Federica Ercole Portfolio">
+<Layout
+    title="Kana App - Federica Ercole Portfolio"
+    index="index"
+    description="Case study di Kana App, una web app per ripassare i sillabari hiragana e katakana"
+>
     <main id="main" class="page">
         <article class="wrapper">
             <div class="page-intro">
@@ -64,8 +68,8 @@ const images = [
                 In realtà esistono altri siti con lo stesso scopo, ma ciò che
                 rende diversa quest'app è la possibilità di ripassare i
                 caratteri all'interno di parole giapponesi. Per fare un paragone
-                con l'italiano, è come esercitarsi a riconoscere le lettere
-                dell'alfabeto attraverso le parole e non singolarmente.
+                con l'italiano, è come esercitarsi a leggere le lettere
+                dell'alfabeto dentro le parole.
             </p>
 
             <h2>Come funziona</h2>
@@ -108,9 +112,9 @@ const images = [
                     <figcaption>
                         <span>3</span> Inizia il ripasso: l'utente legge la parola
                         giapponese e scrive nel campo di testo la relativa lettura
-                        in lettere. All'invio della risposta l'app mostra la parola
-                        successiva se la risposta è corretta, altrimenti offre la
-                        possibilità di vedere la soluzione.
+                        in lettere del nostro alfabeto. Se la risposta è corretta
+                        l'app passa alla parola successiva, altrimenti offre la possibilità
+                        di vedere la soluzione.
                     </figcaption>
                 </figure>
                 <figure class="small">
@@ -126,31 +130,32 @@ const images = [
                 </figure>
             </div>
 
-            <p>
-                L'utente ha anche la possibilità di rivedere tutte le parole
-                incontrate in una comoda tabella.
-            </p>
-            <Picture
-                image={images[4].name}
-                folder={folder}
-                alt={images[4].alt}
-            />
+            <div class="image-grid">
+                <figure class="big">
+                    <Picture
+                        image={images[4].name}
+                        folder={folder}
+                        alt={images[4].alt}
+                    />
+                    <figcaption>
+                        L'utente ha anche la possibilità di rivedere tutte le
+                        parole incontrate in una comoda tabella
+                    </figcaption>
+                </figure>
+            </div>
 
             <h2>Grafica e UI</h2>
             <p>
-                Essendo parte del sito principale ho cercato di rendere l'app
+                Essendo parte del sito principale, ho cercato di rendere l'app
                 simile al sito usando gli stessi colori. Per distinguerla dal
-                sito, e renderla anche meno vuota, ho aggiunto un leggero sfondo
-                che rappresenta i caratteri giapponesi e il motivo di un'onda in
-                cima.
+                sito ho aggiunto un leggero sfondo con caratteri giapponesi e il
+                motivo di un'onda in cima.
             </p>
 
             <p>
-                Ho cercato il più possibile di spezzare le varie fasi in più
-                pagine per rendere più comprensibile il percorso da seguire.
                 Inizialmente avevo pensato di raggruppare in una sola pagina sia
-                la scelta del sillabario che le altre impostazioni, ho scelto
-                infine di separare in due fasi per evitare di dare troppe
+                la scelta del sillabario che le altre impostazioni. Infine ho
+                scelto di separare in due fasi per evitare di dare troppe
                 opzioni in una sola pagina e per far comprendere che si può
                 ripassare un solo sillabario alla volta.
             </p>
