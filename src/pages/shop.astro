@@ -5,9 +5,7 @@ import Picture from "../components/Picture.astro";
 import { works } from "../components/works.astro";
 import { Icon } from "astro-icon";
 
-const filteredWorks = works.filter(
-    (work) => `/${work.slug}` != Astro.url.pathname
-);
+const filteredWorks = works.filter((work) => work.title != "Shop Online");
 
 const folder = "shop";
 
@@ -64,6 +62,15 @@ const images = [
                 <li>Gallery di immagini accessibili</li>
             </ul>
 
+            <h2>Grafica e UI</h2>
+            <p>
+                Ho deciso di usare dei colori scuri come colori principali per
+                dare un taglio moderno a un sito che tratta di giochi da tavolo,
+                ricordando i colori di siti di videogiochi come Steam. Come
+                accent color ho scelto l'arancio che spicca e si intona bene ai
+                toni di grigio e nero dei colori principali.
+            </p>
+
             <div class="image-grid">
                 <figure class="medium">
                     <Picture
@@ -85,15 +92,6 @@ const images = [
                     </figcaption>
                 </figure>
             </div>
-
-            <h2>Grafica e UI</h2>
-            <p>
-                Ho deciso di usare dei colori scuri come colori principali per
-                dare un taglio moderno a un sito che tratta di giochi da tavolo,
-                ricordando i colori di siti di videogiochi come Steam. Come
-                accent color ho scelto l'arancio che spicca e si intona bene ai
-                toni di grigio e nero dei colori principali.
-            </p>
 
             <p>
                 Nell'header ho scelto di mettere in evidenza la barra di ricerca

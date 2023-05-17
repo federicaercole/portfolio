@@ -16,7 +16,7 @@ import { Icon } from "astro-icon";
 <article class="work">
 	<div class="work-desc">
 		<h3>
-			<a href=`/${slug}` class="highlight-link">
+			<a href=`/${slug}/` class="highlight-link">
 				{title}
 				<Icon name="jam:arrow-right" aria-hidden="true" />
 			</a>
@@ -25,7 +25,7 @@ import { Icon } from "astro-icon";
 		<p>{desc}</p>
 	</div>
 	<div class="container">
-		<a href=`/${slug}` tabindex="-1" aria-hidden="true">
+		<a href=`/${slug}/` tabindex="-1" aria-hidden="true">
 			<img
 				alt={alt}
 				src=`/images/${slug}-cover.png`

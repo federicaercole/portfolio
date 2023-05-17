@@ -6,9 +6,7 @@ import { Icon } from "astro-icon";
 import Picture from "../components/Picture.astro";
 import { Code } from "astro/components";
 
-const filteredWorks = works.filter(
-    (work) => `/${work.slug}` != Astro.url.pathname
-);
+const filteredWorks = works.filter((work) => work.title != "Kana App");
 
 const folder = "kana";
 
@@ -60,7 +58,7 @@ const images = [
 
             <p>
                 Ho voluto creare questa app per aggiungere al mio sito <a
-                    href="/hanami-blog">Hanami Blog</a
+                    href="/hanami-blog/">Hanami Blog</a
                 > una funzione utile a chi si sta approcciando allo studio del giapponese.
             </p>
 

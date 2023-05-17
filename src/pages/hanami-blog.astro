@@ -5,9 +5,7 @@ import { works } from "../components/works.astro";
 import { Icon } from "astro-icon";
 import Picture from "../components/Picture.astro";
 
-const filteredWorks = works.filter(
-    (work) => `/${work.slug}` != Astro.url.pathname
-);
+const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
 
 const folder = "hanami-blog";
 
