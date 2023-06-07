@@ -25,7 +25,10 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 	<header>
 		<h1>Federica Ercole</h1>
 		<p>
-			<span class="front-end">Front-End Developer</span>
+			<span class="front-end">
+				<span aria-hidden="true">&lt;</span> Front-End Developer
+				<span aria-hidden="true">&gt;</span>
+			</span>
 			<span class="designer">
 				<span></span>
 				Designer
@@ -34,8 +37,8 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 		</p>
 	</header>
 	<main id="main">
-		<article class="wrapper about">
-			<h2>Mi presento</h2>
+		<section class="wrapper about" aria-labelledby="chi-sono">
+			<h2 id="chi-sono">Mi presento</h2>
 			<div>
 				<p>
 					Sono Federica Ercole e sono una <strong
@@ -71,14 +74,15 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 				</p>
 			</div>
 			<img src="/images/foto.jpg" alt="Federica Ercole sorridente" />
-		</article>
-		<div class="wrapper">
-			<h2>Portfolio</h2>
-			{works.map((work) => <Card work={work} />)}
-		</div>
+		</section>
 
-		<div class="skills wrapper">
-			<h2>Competenze e strumenti</h2>
+		<section class="wrapper" aria-labelledby="portfolio">
+			<h2 id="portfolio">Portfolio</h2>
+			{works.map((work) => <Card work={work} />)}
+		</section>
+
+		<section class="skills wrapper" aria-labelledby="skills">
+			<h2 id="skills">Competenze e strumenti</h2>
 			<article>
 				<h3 class="web">Web</h3>
 				<ul>
@@ -91,6 +95,6 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 					{designSkills.map((skill) => <li>{skill}</li>)}
 				</ul>
 			</article>
-		</div>
+		</section>
 	</main>
 </Layout>

@@ -36,16 +36,21 @@ const images = [
 >
     <main id="main" class="page">
         <article class="wrapper">
-            <div class="page-intro">
+            <header class="page-intro">
                 <h1>Shop Online</h1>
                 <a
                     href="https://federicaercole.github.io/shopping-cart/"
                     class="highlight-link"
                 >
                     Vai al sito
-                    <Icon name="jam:arrow-right" aria-hidden="true" />
+                    <Icon
+                        name="jam:arrow-right"
+                        aria-hidden="true"
+                        width="24"
+                        height="24"
+                    />
                 </a>
-            </div>
+            </header>
             <p>
                 Un finto shop online costruito in React per prendere confidenza
                 con React Router.
@@ -176,6 +181,7 @@ const images = [
                             src="/images/shop/validation.mp4"
                             type="video/mp4"
                         />
+                        Il tuo browser non supporta il tag HTML5 video.
                     </video>
                     <figcaption>
                         Viene mostrato il messaggio d'errore quando si abbandona
@@ -188,8 +194,9 @@ const images = [
                         <source
                             src="/images/shop/focus-trap.mp4"
                             type="video/mp4"
-                        /></video
-                    >
+                        />
+                        Il tuo browser non supporta il tag HTML5 video.
+                    </video>
                     <figcaption>
                         Il cursore non supera i confini della finestra della
                         gallery
