@@ -1,11 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import { works } from "../components/works.astro";
+import Related from "../components/Related.astro";
 import { Icon } from "astro-icon";
 import Picture from "../components/Picture.astro";
-
-const filteredWorks = works.filter((work) => work.title != "Hanami Blog");
 
 const folder = "hanami-blog";
 
@@ -35,7 +32,7 @@ const images = [
     description="Case study di Hanami Blog, un sito dedicato a chi studia la lingua giapponese"
 >
     <main id="main" class="page">
-        <article class="wrapper">
+        <article>
             <header class="page-intro">
                 <h1>Hanami Blog</h1>
                 <a href="https://hanamiblog.net" class="highlight-link">
@@ -170,8 +167,5 @@ const images = [
             </ul>
         </article>
     </main>
-    <aside class="wrapper">
-        <h2>Altri progetti</h2>
-        {filteredWorks.map((work) => <Card work={work} />)}
-    </aside>
+    <Related page="Hanami Blog" />
 </Layout>

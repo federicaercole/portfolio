@@ -1,0 +1,11 @@
+---
+import Card from "./Card.astro";
+import { works } from "./works.astro";
+const { page } = Astro.props;
+const filteredWorks = works.filter((work) => work.title != page);
+---
+
+<aside>
+    <h2>Altri progetti</h2>
+    {filteredWorks.map((work) => <Card work={work} />)}
+</aside>

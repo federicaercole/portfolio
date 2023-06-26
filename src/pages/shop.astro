@@ -1,11 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import Picture from "../components/Picture.astro";
-import { works } from "../components/works.astro";
+import Related from "../components/Related.astro";
 import { Icon } from "astro-icon";
-
-const filteredWorks = works.filter((work) => work.title != "Shop Online");
 
 const folder = "shop";
 
@@ -35,7 +32,7 @@ const images = [
     description="Case study di un finto shop online costruito con React"
 >
     <main id="main" class="page">
-        <article class="wrapper">
+        <article>
             <header class="page-intro">
                 <h1>Shop Online</h1>
                 <a
@@ -215,9 +212,5 @@ const images = [
             </ul>
         </article>
     </main>
-
-    <aside class="wrapper">
-        <h2>Altri progetti</h2>
-        {filteredWorks.map((work) => <Card work={work} />)}
-    </aside>
+    <Related page="Shop Online" />
 </Layout>

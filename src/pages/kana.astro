@@ -1,12 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import { works } from "../components/works.astro";
+import Related from "../components/Related.astro";
 import { Icon } from "astro-icon";
 import Picture from "../components/Picture.astro";
 import { Code } from "astro/components";
-
-const filteredWorks = works.filter((work) => work.title != "Kana App");
 
 const folder = "kana";
 
@@ -40,7 +37,7 @@ const images = [
     description="Case study di Kana App, una web app per ripassare i sillabari hiragana e katakana"
 >
     <main id="main" class="page">
-        <article class="wrapper">
+        <article>
             <header class="page-intro">
                 <h1>Kana App</h1>
                 <a
@@ -259,8 +256,5 @@ function setArrayOfWords() {
             </ul>
         </article>
     </main>
-    <aside class="wrapper">
-        <h2>Altri progetti</h2>
-        {filteredWorks.map((work) => <Card work={work} />)}
-    </aside>
+    <Related page="Kana App" />
 </Layout>
