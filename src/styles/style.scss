@@ -42,42 +42,33 @@ a {
     background-repeat: no-repeat;
 }
 
+@mixin font() {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-display: block;
+    src: url(/fonts/montserrat.woff2) format('woff2');
+}
+
 /*Font*/
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
+    @include font();
     font-weight: 400;
-    font-display: block;
-    src: url(/fonts/montserrat.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
+    @include font();
     font-weight: 500;
-    font-display: block;
-    src: url(/fonts/montserrat.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
+    @include font();
     font-weight: 600;
-    font-display: block;
-    src: url(/fonts/montserrat.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
+    @include font();
     font-weight: 700;
-    font-display: block;
-    src: url(/fonts/montserrat.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /*Stili elementi base*/
@@ -91,6 +82,7 @@ $primary-color-600: #2A3E89;
 $primary-color-700: #1C2E6E;
 $primary-color-800: #0A1C5C;
 $primary-color-900: #041349;
+$accent-color-800: #382A00;
 $accent-color-500: #FFC727;
 $accent-color-300: #fedd81;
 $violet: #311C6E;
@@ -115,7 +107,6 @@ body {
 
 header {
     padding: min(48px, 10vh) 0;
-    align-self: center;
 }
 
 svg {
@@ -123,10 +114,10 @@ svg {
     height: auto;
 }
 
-.wrapper {
+section,
+aside {
     margin: 0 auto;
-    max-width: 1120px;
-    padding: min(64px, 15vh) 16px;
+    width: min(70rem, 100vw - 2rem);
 }
 
 .visually-hidden {
@@ -140,14 +131,22 @@ svg {
 
 /*Testo*/
 
-p:not(header>p, footer>p) {
-    margin: 1rem 0;
+p:not(header>p) {
     max-width: 55ch;
     line-height: 1.6;
+}
 
-    &+& {
-        margin: 1.5rem 0;
-    }
+ul>*+* {
+    margin-top: 1rem;
+}
+
+article>*+*,
+section *+* {
+    margin-top: min(1.5rem, 3vh);
+}
+
+#main>*+* {
+    margin-top: min(8rem, 8vmax);
 }
 
 strong {
@@ -168,7 +167,6 @@ h1 {
 h2 {
     color: $primary-color-200;
     font-size: clamp($fs-400, $fs-100 + 4vw, $fs-500);
-    margin-bottom: 16px;
     text-align: center;
     flex-basis: 100%;
 }
@@ -182,13 +180,10 @@ h2 {
     width: max-content;
     position: relative;
     z-index: 4;
-
-    svg {
-        color: $accent-color-500;
-    }
 }
 
 .page {
+
     .highlight-link {
         font-size: $fs-200;
         text-transform: uppercase;
@@ -197,19 +192,20 @@ h2 {
     }
 
     a:not(.highlight-link) {
-        text-decoration: underline;
         color: $accent-color-500;
+        text-decoration: underline;
     }
 }
 
 /*Header*/
 
 nav {
-    @include vertical-align-center();
+    display: flex;
+    align-items: end;
     justify-self: center;
-    width: min(100%, 1120px);
-    padding: min(32px, 8vh) 16px;
     justify-content: space-between;
+    width: min(70rem, 100vw - 2rem);
+    padding: min(32px, 8vh) 0;
 
     svg {
         width: 48px;
@@ -219,6 +215,14 @@ nav {
         z-index: 3;
     }
 
+    a:last-of-type {
+        padding: 8px 16px;
+        border-bottom: 4px solid $primary-color-300;
+        color: $primary-color-100;
+        font-size: $fs-200;
+        font-weight: 500;
+    }
+
     .f-logo {
         fill: $primary-color-100;
     }
@@ -226,15 +230,6 @@ nav {
     .e-logo {
         fill: $primary-color-300;
     }
-}
-
-.cta {
-    padding: 8px 16px;
-    background-color: $primary-color-300;
-    border-radius: 12px;
-    color: $primary-color-800;
-    font-size: $fs-200;
-    font-weight: 500;
 }
 
 header p {
@@ -291,14 +286,9 @@ header p {
 /*Sezione portfolio*/
 
 .work {
-    margin: 32px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
     gap: clamp(16px, 3vmax, 64px);
-
-    &:last-of-type {
-        margin-bottom: 0;
-    }
 }
 
 .work-desc {
@@ -307,7 +297,7 @@ header p {
     flex-direction: column;
 
     p {
-        margin-bottom: 0;
+        margin-top: 1rem;
     }
 
     h3 {
@@ -327,10 +317,10 @@ header p {
 
 .container {
     height: 85%;
-    border-radius: 12px;
     overflow: hidden;
     max-width: 512px;
     transform: translateY(0);
+    margin-top: 0;
 }
 
 /*Footer*/
@@ -339,27 +329,23 @@ footer {
     background-color: $primary-color-900;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     padding: 32px 16px;
-    justify-content: center;
     z-index: 1;
-    flex-wrap: wrap;
-    text-align: center;
-
-    h2 {
-        margin-bottom: 0;
-    }
+    margin-top: min(8rem, 8vmax);
 
     div {
         display: flex;
         justify-content: center;
         gap: 16px;
         flex-basis: 100%;
-        margin-top: 16px;
+        margin-bottom: 1rem;
     }
 
     a {
         background-color: $primary-color-200;
+        color: $primary-color-800;
         width: 48px;
         height: 48px;
         border-radius: 50%;
@@ -368,35 +354,32 @@ footer {
     }
 
     svg {
-        color: $primary-color-800;
         z-index: 5;
     }
 
-    p:last-of-type {
+    p {
         font-size: $fs-50;
-        margin: 2rem 0 0 0;
     }
 }
 
 /*Pagina portfolio*/
 
 .page {
+    margin: 0 auto min(8rem, 8vmax) auto;
+
+    &>article {
+        width: min(75rem, 100vw - 2rem);
+    }
 
     h1 {
         font-size: clamp($fs-400, $fs-100 + 4vw, $fs-600);
         color: $primary-color-200;
-        text-align: left;
     }
 
-    h2,
-    .error {
-        margin: 64px 0 24px 0;
+    h2 {
+        margin-top: 4rem;
         text-align: left;
         font-size: clamp($fs-300, $fs-100 + 2vw, $fs-400);
-    }
-
-    .error {
-        font-size: $fs-500;
     }
 
     .page-intro {
@@ -405,22 +388,17 @@ footer {
         align-items: baseline;
         flex-wrap: wrap;
         gap: 24px;
-        margin-bottom: 16px;
         padding: 0;
-
-        &+p {
-            margin-top: min(32px, 5vh);
-        }
+        margin-top: 1rem;
+        margin-bottom: 2rem;
     }
 
     ul {
         list-style: disc;
-        padding: 0 0 16px 0;
         padding-left: 24px;
     }
 
     li {
-        padding: min(8px, 2vh) 0;
         line-height: 1.6;
     }
 
@@ -435,27 +413,22 @@ footer {
 }
 
 aside {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+
     h2 {
         text-align: left;
         grid-column: 1/-1;
     }
 
-    &.wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 32px 16px;
-        margin-bottom: 64px;
-    }
-
     .work {
         grid-template-columns: 1fr;
-        margin: 0;
         gap: 0;
         align-items: start;
 
         &:nth-of-type(2) {
-            margin-top: 32px;
+            margin-top: 1rem;
         }
     }
 
@@ -475,19 +448,18 @@ aside {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
-    margin-top: 64px;
+    margin-top: min(4rem, 8vh);
     align-items: flex-start;
 
-    &+h2,
-    &+p {
-        margin-top: 3rem;
+    &+* {
+        margin-top: min(3rem, 6vh);
     }
 
     figure {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
         gap: clamp(16px, 3vmax, 32px);
 
         figcaption {
@@ -535,14 +507,13 @@ aside {
 }
 
 video {
-    max-width: 300px;
+    max-width: 280px;
 }
 
 /*Hover*/
 @media(hover:hover) {
 
     .highlight-link:hover,
-    .highlight-link:hover svg,
     .page a:hover {
         color: $accent-color-300;
     }
@@ -551,13 +522,8 @@ video {
         transform: translateX(12px);
     }
 
-    footer a:hover,
-    .cta:hover {
+    footer a:hover {
         background-color: $primary-color-400;
-        color: $primary-color-100;
-    }
-
-    footer a:hover svg {
         color: $primary-color-100;
     }
 
@@ -565,19 +531,28 @@ video {
         transform: translateY(-15%);
     }
 
-    a:hover .f-logo {
-        fill: $primary-color-300;
+    nav a:hover {
+        .f-logo {
+            fill: $primary-color-300;
+        }
+
+        .e-logo {
+            fill: $primary-color-100;
+        }
+
+        &:last-of-type {
+            border-color: $primary-color-100;
+        }
     }
 
-    a:hover .e-logo {
-        fill: $primary-color-100;
+    .cta:hover {
+        background-color: $accent-color-300;
     }
 }
 
 /*Active*/
 
 .highlight-link:active,
-.highlight-link:active svg,
 .page a:active {
     color: $accent-color-300;
 }
@@ -586,14 +561,13 @@ video {
     transform: translateX(12px);
 }
 
-footer a:active,
-.cta:active {
+footer a:active {
     background-color: $primary-color-400;
     color: $primary-color-100;
 }
 
-footer a:active svg {
-    color: $primary-color-100;
+.cta:active {
+    background-color: $accent-color-300;
 }
 
 /*Focus*/
@@ -631,7 +605,7 @@ footer a:active svg {
 
 /*Sezione chi sono*/
 
-.about.wrapper {
+.about {
     align-items: center;
 
     &>div {
@@ -651,20 +625,11 @@ footer a:active svg {
 
 /*Sezione competenze*/
 
-.skills.wrapper,
-.about.wrapper {
+.skills,
+.about {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
-
-    p:first-of-type {
-        margin-top: 0;
-    }
-
-    p:last-of-type {
-        margin-bottom: 0;
-    }
 }
 
 .skills {
@@ -674,7 +639,6 @@ footer a:active svg {
         @include vertical-align-center();
         gap: 24px;
         letter-spacing: 0.05rem;
-        margin-bottom: 16px;
     }
 
     h3::before {
@@ -696,26 +660,38 @@ footer a:active svg {
         @include background-size();
     }
 
-    &.wrapper article {
-        flex: 1 1 250px;
+    article {
+        flex: 1 1 280px;
         padding: 24px;
         @include vertical-align-center();
         flex-direction: column;
-        max-width: 250px;
+        max-width: 280px;
     }
+}
 
-    .wrapper article:last-of-type {
-        padding-bottom: 0;
+/*Sezione contattami*/
+.contattami {
+    background-color: $primary-color-900;
+    @include vertical-align-center();
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-around;
+    padding: 32px;
+
+    &>* {
+        margin-top: 0;
     }
+}
 
-    li {
-        margin: 16px 0;
-    }
-
-    li:last-of-type {
-        margin-bottom: 0;
-    }
-
+.cta {
+    @include vertical-align-center();
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: $accent-color-500;
+    color: $accent-color-800;
+    border-radius: 12px;
+    font-size: $fs-200;
+    font-weight: 500;
 }
 
 /*Animazioni*/
@@ -774,9 +750,7 @@ footer a:active svg {
     }
 
     aside {
-        &.wrapper {
-            grid-template-columns: 1fr 1fr;
-        }
+        grid-template-columns: 1fr 1fr;
 
         .work {
             &:nth-of-type(2) {
@@ -788,7 +762,7 @@ footer a:active svg {
 
 @media (min-width: 50rem) {
 
-    .about.wrapper {
+    .about {
         justify-content: flex-start;
     }
 
@@ -827,19 +801,11 @@ footer a:active svg {
         font-size: $fs-200;
     }
 
-    .page {
-        .wrapper {
-            max-width: 75rem;
+    .page article {
 
-            &>h1,
-            &>h2,
-            &>p,
-            &>ul,
-            &>pre,
-            .page-intro {
-                margin-left: 40px;
-                margin-right: 40px;
-            }
+        &>*:not(div) {
+            margin-left: 40px;
+            margin-right: 40px;
         }
     }
 }
