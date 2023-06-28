@@ -96,8 +96,14 @@ $fs-500: 3rem;
 $fs-600: 3.75rem;
 $fs-700: 4.5rem;
 
-body {
+html {
     background: linear-gradient(180deg, $violet 12.8%, $primary-color-800 29.17%);
+}
+
+body {
+    background: url('/images/background.svg') no-repeat top center,
+        url('/images/background2.svg') no-repeat center 99%;
+    background-size: 1400px;
     color: $primary-color-100;
     font-family: 'Montserrat', sans-serif;
     display: grid;
@@ -106,7 +112,7 @@ body {
 }
 
 header {
-    padding: min(48px, 10vh) 0;
+    padding: min(96px, 6vmax) 0 min(192px, 12vmax) 0;
 }
 
 svg {
@@ -146,7 +152,7 @@ section *+* {
 }
 
 #main>*+* {
-    margin-top: min(8rem, 8vmax);
+    margin-top: min(12rem, 12vmax);
 }
 
 strong {
@@ -156,18 +162,17 @@ strong {
 h1,
 h2 {
     letter-spacing: 0.05rem;
+    text-align: center;
 }
 
 h1 {
     color: $accent-color-500;
     font-size: clamp($fs-500, 4vw + $fs-100, $fs-700);
-    text-align: center;
 }
 
 h2 {
     color: $primary-color-200;
     font-size: clamp($fs-400, $fs-100 + 4vw, $fs-500);
-    text-align: center;
     flex-basis: 100%;
 }
 
@@ -235,9 +240,9 @@ nav {
 header p {
     @include vertical-align-center();
     flex-direction: column;
-    font-size: clamp($fs-300, $fs-100 + 2vw, $fs-500);
+    font-size: clamp($fs-300, $fs-100 + 2vw, $fs-400);
     font-weight: 500;
-    margin: min(64px, 10vh) 0 0 0;
+    margin: min(32px, 4vh) 0 0 0;
     text-align: center;
 }
 
@@ -333,7 +338,8 @@ footer {
     gap: 16px;
     padding: 32px 16px;
     z-index: 1;
-    margin-top: min(8rem, 8vmax);
+    margin-top: min(12rem, 12vmax);
+    text-align: center;
 
     div {
         display: flex;
@@ -365,7 +371,7 @@ footer {
 /*Pagina portfolio*/
 
 .page {
-    margin: 0 auto min(8rem, 8vmax) auto;
+    margin: 0 auto min(12rem, 12vmax) auto;
 
     &>article {
         width: min(75rem, 100vw - 2rem);
@@ -673,10 +679,11 @@ footer a:active {
 .contattami {
     background-color: $primary-color-900;
     @include vertical-align-center();
+    justify-content: center;
     flex-wrap: wrap;
     gap: 24px;
-    justify-content: space-around;
     padding: 32px;
+    max-width: max-content;
 
     &>* {
         margin-top: 0;
@@ -692,6 +699,7 @@ footer a:active {
     border-radius: 12px;
     font-size: $fs-200;
     font-weight: 500;
+    text-align: center;
 }
 
 /*Animazioni*/
@@ -770,10 +778,6 @@ footer a:active {
         font-size: $fs-200;
     }
 
-    header {
-        margin-bottom: min(64px, 15vh);
-    }
-
     .image-grid {
 
         figure {
@@ -795,7 +799,7 @@ footer a:active {
     }
 }
 
-@media (min-width: 62.5rem) {
+@media (min-width: 75rem) {
 
     p {
         font-size: $fs-200;

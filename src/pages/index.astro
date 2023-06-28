@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { works } from "../components/works.astro";
 import Card from "../components/Card.astro";
+import { Icon } from "astro-icon";
 
 const webSkills = [
 	"HTML",
@@ -19,7 +20,7 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 
 <Layout
 	title="Federica Ercole - Front-End Developer e Designer"
-	description="Portfolio di Federica Ercole, graphic designer interessata al front-end development"
+	description="Portfolio di Federica Ercole, graphic designer interessata al web development"
 	index="index"
 >
 	<header>
@@ -37,15 +38,15 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 		</p>
 	</header>
 	<main id="main">
-		<section class="wrapper about" aria-labelledby="chi-sono">
+		<section class="about" aria-labelledby="chi-sono">
 			<h2 id="chi-sono">Mi presento</h2>
 			<div>
 				<p>
-					Sono Federica Ercole e sono una <strong
-						>graphic designer</strong
-					> interessata al front-end development. <strong
-						>Costruisco siti web</strong
-					> facendo attenzione all'<strong>accessibilità</strong> per rendere
+					Sono Federica Ercole e sono una
+					<strong>graphic designer</strong>
+					interessata al web development.
+					<strong>Costruisco siti web</strong>
+					facendo attenzione all'<strong>accessibilità</strong> per rendere
 					i contenuti fruibili a tutti gli utenti.
 				</p>
 
@@ -65,7 +66,8 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 
 				<p>
 					<strong>Negli ultimi 6 mesi</strong> ho iniziato a studiare JavaScript
-					e React seguendo vari corsi.
+					e React seguendo vari corsi, tra cui
+					<strong>The Odin Project</strong>.
 				</p>
 
 				<p>
@@ -76,12 +78,12 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 			<img src="/images/foto.jpg" alt="Federica Ercole sorridente" />
 		</section>
 
-		<section class="wrapper" aria-labelledby="portfolio">
+		<section aria-labelledby="portfolio">
 			<h2 id="portfolio">Portfolio</h2>
 			{works.map((work) => <Card work={work} />)}
 		</section>
 
-		<section class="skills wrapper" aria-labelledby="skills">
+		<section class="skills" aria-labelledby="skills">
 			<h2 id="skills">Competenze e strumenti</h2>
 			<article>
 				<h3 class="web">Web</h3>
@@ -95,6 +97,23 @@ const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 					{designSkills.map((skill) => <li>{skill}</li>)}
 				</ul>
 			</article>
+		</section>
+		<section class="contattami" aria-label="Contattami">
+			<p>
+				Sono alla ricerca di
+				<strong>nuove opportunità lavorative</strong>
+				come Web Developer o Designer. Non ho problemi ad imparare nuovi
+				linguaggi e strumenti.
+			</p>
+			<a href="mailto:info@federicaercole.com" class="cta">
+				<Icon
+					name="tabler:mail"
+					aria-hidden="true"
+					focusable="false"
+					width="24"
+					height="24"
+				/>Manda un'e-mail</a
+			>
 		</section>
 	</main>
 </Layout>
