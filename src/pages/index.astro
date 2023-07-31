@@ -5,115 +5,96 @@ import Card from "../components/Card.astro";
 import { Icon } from "astro-icon";
 
 const webSkills = [
-	"HTML",
-	"CSS",
-	"Sass/SCSS",
-	"JavaScript",
-	"React",
-	"WordPress",
-	"Git",
-	"VS Code",
+  "HTML",
+  "CSS",
+  "Sass/SCSS",
+  "JavaScript",
+  "React",
+  "Node.js",
+  "SQL",
+  "WordPress",
+  "Git",
+  "VS Code",
 ];
 
 const designSkills = ["Adobe Illustrator", "Affinity Designer", "Figma"];
 ---
 
-<Layout
-	title="Federica Ercole - Front-End Developer e Designer"
-	description="Portfolio di Federica Ercole, graphic designer interessata al web development"
-	index="index"
->
-	<header>
-		<h1>Federica Ercole</h1>
-		<p>
-			<span class="front-end">
-				<span aria-hidden="true">&lt;</span> Front-End Developer
-				<span aria-hidden="true">&gt;</span>
-			</span>
-			<span class="designer">
-				<span></span>
-				Designer
-				<span></span>
-			</span>
-		</p>
-	</header>
-	<main id="main">
-		<section class="about" aria-labelledby="chi-sono">
-			<h2 id="chi-sono">Mi presento</h2>
-			<div>
-				<p>
-					Sono Federica Ercole e sono una
-					<strong>graphic designer</strong>
-					interessata al web development.
-					<strong>Costruisco siti web</strong>
-					facendo attenzione all'<strong>accessibilità</strong> per rendere
-					i contenuti fruibili a tutti gli utenti.
-				</p>
+<Layout title="Federica Ercole - Full Stack Developer e Designer"
+  description="Portfolio di Federica Ercole, graphic designer interessata al web development" index="index">
+  <header>
+    <h1>Federica Ercole</h1>
+    <p>
+      <span class="front-end">
+        <span aria-hidden="true">&lt;</span> Full Stack Developer <span aria-hidden="true">&gt;</span>
+      </span>
+      <span class="designer">
+        <span></span>Designer<span></span>
+      </span>
+    </p>
+  </header>
+  <main id="main">
+    <section class="about" aria-labelledby="chi-sono">
+      <h2 id="chi-sono">Mi presento</h2>
+      <div>
+        <p>
+          Sono Federica Ercole e sono una <strong>graphic designer</strong> e <strong>web developer</strong>.
+          <strong>Costruisco siti web</strong> facendo attenzione all'<strong>accessibilità</strong>
+          e alla <strong>user experience</strong> per rendere i contenuti fruibili a tutti gli utenti.
+        </p>
+        <p>
+          Ho iniziato <strong>i miei primi passi nel web nei primi anni 2000</strong>
+          con HTML e CSS, quando si usavano tabelle per posizionare gli elementi
+          di una pagina e tanti siti facevano uso di Flash.
+        </p>
 
-				<p>
-					Ho iniziato <strong
-						>i miei primi passi nel web nei primi anni 2000</strong
-					>
-					con HTML e CSS, quando si usavano tabelle per posizionare gli
-					elementi di una pagina e tanti siti facevano uso di Flash.
-				</p>
+        <p>
+          Successivamente ho iniziato ad usare il CMS WordPress.org per creare
+          siti dinamici, creando temi da zero sia dal punto di vista del codice HTML
+          e CSS che della grafica.
+        </p>
 
-				<p>
-					Successivamente ho iniziato ad usare il CMS WordPress.org
-					per creare siti dinamici, creando temi da zero sia dal punto
-					di vista dell'HTML e CSS che della grafica.
-				</p>
+        <p>
+          <strong>Nell'ultimo anno</strong> ho iniziato a studiare JavaScript,
+          React e Node.js seguendo vari corsi, tra cui <strong>The Odin Project</strong>.
+        </p>
 
-				<p>
-					<strong>Negli ultimi 6 mesi</strong> ho iniziato a studiare JavaScript
-					e React seguendo vari corsi, tra cui
-					<strong>The Odin Project</strong>.
-				</p>
+        <p>
+          Sono sempre alla ricerca nuove opportunità per migliorare le mie
+          conoscenze. Non si finisce mai di imparare!
+        </p>
+      </div>
+      <img src="/images/foto.jpg" alt="Federica Ercole sorridente">
+    </section>
 
-				<p>
-					Sono sempre alla ricerca nuove opportunità per migliorare le
-					mie conoscenze. Non si finisce mai di imparare!
-				</p>
-			</div>
-			<img src="/images/foto.jpg" alt="Federica Ercole sorridente" />
-		</section>
+    <section aria-labelledby="portfolio">
+      <h2 id="portfolio">Portfolio</h2>
+      {works.map((work) => <Card work={work} />)}
+    </section>
 
-		<section aria-labelledby="portfolio">
-			<h2 id="portfolio">Portfolio</h2>
-			{works.map((work) => <Card work={work} />)}
-		</section>
-
-		<section class="skills" aria-labelledby="skills">
-			<h2 id="skills">Competenze e strumenti</h2>
-			<article>
-				<h3 class="web">Web</h3>
-				<ul>
-					{webSkills.map((skill) => <li>{skill}</li>)}
-				</ul>
-			</article>
-			<article>
-				<h3 class="design">Design</h3>
-				<ul>
-					{designSkills.map((skill) => <li>{skill}</li>)}
-				</ul>
-			</article>
-		</section>
-		<section class="contattami" aria-label="Contattami">
-			<p>
-				Sono alla ricerca di
-				<strong>nuove opportunità lavorative</strong>
-				come Web Developer o Designer. Non ho problemi ad imparare nuovi
-				linguaggi e strumenti.
-			</p>
-			<a href="mailto:info@federicaercole.com" class="cta">
-				<Icon
-					name="tabler:mail"
-					aria-hidden="true"
-					focusable="false"
-					width="24"
-					height="24"
-				/>Manda un'e-mail</a
-			>
-		</section>
-	</main>
+    <section class="skills" aria-labelledby="skills">
+      <h2 id="skills">Competenze e strumenti</h2>
+      <article>
+        <h3 class="web">Web</h3>
+        <ul>
+          {webSkills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </article>
+      <article>
+        <h3 class="design">Design</h3>
+        <ul>
+          {designSkills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </article>
+    </section>
+    <section class="contattami" aria-label="Contattami">
+      <p>
+        Sono alla ricerca di <strong>nuove opportunità lavorative</strong>
+        come Web Developer o Designer. Non ho problemi ad imparare nuovi linguaggi e strumenti.
+      </p>
+      <a href="mailto:info@federicaercole.com" class="cta">
+        <Icon name="tabler:mail" aria-hidden="true" focusable="false" width="24" height="24" />Manda un'e-mail
+      </a>
+    </section>
+  </main>
 </Layout>
