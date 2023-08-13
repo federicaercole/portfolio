@@ -35,10 +35,8 @@ const images = [
         <article>
             <header class="page-intro">
                 <h1>Shop Online</h1>
-                <a
-                    href="https://federicaercole.github.io/shopping-cart/"
-                    class="highlight-link"
-                >
+                <a href="https://federicaercole.github.io/shopping-cart/"
+                    class="highlight-link">
                     Vai al sito
                     <Icon
                         name="jam:arrow-right"
@@ -49,18 +47,19 @@ const images = [
                 </a>
             </header>
             <p>
-                Un finto shop online costruito in React per prendere confidenza
-                con React Router.
+                Un finto shop online costruito in React, con React Router per gestire le pagine, dal lato front end e in Node.js dal lato back end.
             </p>
             <p>Funzionalità dello shop:</p>
             <ul>
+                <li>Front end separato dal back end</li>
+                <li>Uso di un'API per accedere ai prodotti, costruita in Node.js</li>
                 <li>Ricerca dei prodotti</li>
-                <li>Gestione del carrello</li>
-                <li>Breadcrumb</li>
                 <li>
                     Visualizzazione dei prodotti in ordine alfabetico e per
                     prezzo
                 </li>
+                <li>Gestione del carrello</li>
+                <li>Breadcrumb</li>
                 <li>Gallery di immagini accessibili</li>
             </ul>
 
@@ -103,8 +102,7 @@ const images = [
                 poichè risultano essere <a
                     href="https://www.nngroup.com/articles/auto-forwarding/"
                     >elementi poco accessibili e in generale non molto usati
-                    dagli utenti</a
-                >.
+                    dagli utenti</a>.
             </p>
 
             <div class="image-grid">
@@ -127,11 +125,12 @@ const images = [
             </div>
 
             <h2>Dettagli tecnici</h2>
-            <p>Vorrei soffermarmi in particolare su tre aspetti:</p>
+            <p>Vorrei soffermarmi in particolare su quattro aspetti:</p>
             <ul>
                 <li>Carrello</li>
                 <li>Validazione degli input</li>
                 <li>Accessibilità della gallery</li>
+                <li>API</li>
             </ul>
 
             <p>Tutti gestiti senza l'uso di particolari package.</p>
@@ -153,9 +152,8 @@ const images = [
             <p>
                 Per la validazione dei campi di testo ho voluto provare un
                 approccio diverso dal solito, detto <a
-                    href="https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/#4-reward-early-punish-late"
-                    >Reward Early, Punish Late</a
-                >. Con questo pattern si avvisa l'utente dell'errore quando
+                    href="https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/#4-reward-early-punish-late">
+                    Reward Early, Punish Late</a>. Con questo pattern si avvisa l'utente dell'errore quando
                 lascia l'input, ma si ha un feedback istantaneo quando l'utente
                 corregge l'errore.
             </p>
@@ -165,9 +163,8 @@ const images = [
                 (frecce sinistra e destra, tasto esc per uscire dalla finestra),
                 sia la navigazione tramite il tasto tab. In questo caso ho
                 seguito le <a
-                    href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
-                    >linee guida del W3C</a
-                > che consiglia di implementare la navigazione con tab nella sola
+                    href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/">
+                    linee guida del W3C</a> che consiglia di implementare la navigazione con tab nella sola
                 finestra, in modo tale da evitare di avere il cursore intrappolato
                 nella pagina sottostante non visibile.
             </p>
@@ -200,10 +197,15 @@ const images = [
                     </figcaption>
                 </figure>
             </div>
+            <p>Per quanto riguarda l'API ho cercato di strutturarla come una REST API, andando a definire le varie route per accedere ai prodotti
+                nell'homepage, nelle pagine singole e nella ricerca, facendo attenzione a gestire correttamente gli errori in caso di dati inesistenti. Nella parte front end 
+                ho utilizzato la funzione useLoaderData di React Router per accedere ai dati del back end. I dati dei prodotti sono salvati in un database MySQL.
+            </p>
             <h2>Cosa ho imparato da questo progetto</h2>
             <p>Da questo progetto ho imparato principalmente a:</p>
             <ul>
-                <li>usare Context e Ref in React</li>
+                <li>creare un'API</li>
+                <li>usare Context, Ref e Router in React</li>
                 <li>
                     capire come strutturare il codice per più pagine con
                     molteplici componenti
