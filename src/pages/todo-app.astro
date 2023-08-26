@@ -23,6 +23,10 @@ alt: "Schermata che mostra l'opzione di modifica del nome della categoria e dell
 name: "todo-app-4",
 alt: "Finestra di dialogo per confermare la cancellazione della categoria",
 },
+{
+name: "todo-app-5",
+alt: "Landing page dell'app",
+},
 ];
 ---
 
@@ -44,6 +48,7 @@ alt: "Finestra di dialogo per confermare la cancellazione della categoria",
             </p>
             <p>Le sue funzionalità sono:</p>
             <ul>
+                <li>Utilizzo dell'app tramite un account</li>
                 <li>Possibilità di aggiungere, modificare e cancellare sia le attività da svolgere che le categorie di
                     appartenenza</li>
                 <li>Mostrare le attività da fare in base ai filtri inseriti per priorità e stato</li>
@@ -64,6 +69,10 @@ alt: "Finestra di dialogo per confermare la cancellazione della categoria",
                     <Picture alt={images[1].alt} folder={folder} image={images[1].name} />
                     <figcaption>Come appare l'homepage su mobile</figcaption>
                 </figure>
+                <figure class="big">
+                    <Picture alt={images[4].alt} folder={folder} image={images[4].name} />
+                    <figcaption>Landing page su desktop</figcaption>
+                </figure>
             </div>
             <p>
                 È stato dato anche molto spazio al menù di navigazione nella versione desktop per renderla più semplice
@@ -79,6 +88,8 @@ alt: "Finestra di dialogo per confermare la cancellazione della categoria",
                 varie operazioni CRUD, anche attraverso l'uso di un pacchetto npm necessario per sovrascrivere i metodi
                 get e post dei moduli.
             </p>
+            <p>Per la creazione degli account è stato usato il package Passport, insieme al relativo package Local Strategy per gestire il login e il logout. 
+                Per gestire le sessioni sono stati usati i cookie e il salvataggio delle sessioni su database.</p>
             <p>
                 Dal lato front end invece vorrei far notare l'accessibilità delle finestre di dialogo, dalle quali si
                 può uscire premendo il tasto esc e navigare tramite il tasto tab. In particolare ho seguito
